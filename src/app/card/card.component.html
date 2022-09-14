@@ -1,0 +1,28 @@
+<section>
+    <div class="container">
+        <div class="card-wrapper">
+            <div *ngFor="let user of profile">
+                <div class="card" *ngIf="user.batch == year">
+                    <h1 *ngIf="user.elite">Elite alumini</h1>
+                    <img src="../../assets/img/abi.jpg" alt="card background" class="card-img">
+                    <img src="../../assets/img/abish (2).jpg" alt="profile image" class="profile-img ">
+                    <h1>{{user.name}}</h1>
+                    <p class="job-title"> Lead Designer </p>
+                    <p class="about">
+                        Lorem ipsum dolor sit amet , consectetur adipisicing elit .
+                        Adipisci , alias aliquam amet autem blanditiis commodi consectetur
+                        cum dolorem ea eos error , incidunt inventore laboriosam modi pariatur
+                        quod quos tempore tenetur .
+                    </p>
+                    <a routerLink="/profile/view/ajsdfhkas" class="btn"> Contact </a>
+                    <ul class=" social-media ">
+                        <li> <a href="#"> <i class="fab fa-facebook-square"> </i> </a> </li>
+                        <li> <a href="#"> <i class="fab fa-twitter-square"> </i> </a> </li>
+                        <li> <a href="#"> <i class="fab fa-instagram"> </i> </a> </li>
+                        <li> <a href="#"> <i class="fab fa-google-plus-square"> </i> </a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

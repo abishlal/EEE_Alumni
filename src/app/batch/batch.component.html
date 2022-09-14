@@ -1,0 +1,15 @@
+<div class="cards row" *ngFor="let year of batch">
+    <div class="container" >
+        <div class="col-sm-3" >
+            <div class="card border-primary mb-4">
+                <div class="card-header">
+                    <h3 class="card-title">Batch</h3>
+                </div>
+                <div class="card-body text-primary" >
+                    <p class="card-text">{{year.start_year}} to {{year.end_year}}</p>
+                    <a routerLink="/profile/{{year.end_year}}" class="btn btn-primary">View all</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

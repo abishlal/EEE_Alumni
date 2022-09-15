@@ -18,6 +18,7 @@ import { EmailComponent } from './verification/email/email.component';
 import { PasswordComponent } from './verification/password/password.component';
 import { BatchComponent } from './batch/batch.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { AdminComponent } from './admin/admin.component';
 const firebaseConfig = {
   apiKey: "AIzaSyAmuWyQ1u7XCkJNpSUl_c-m_MUHT4UKmQ8",
   authDomain: "alumini-eee.firebaseapp.com",
@@ -45,7 +46,8 @@ const analytics = getAnalytics(app);
     EmailComponent,
     PasswordComponent,
     BatchComponent,
-    ViewProfileComponent
+    ViewProfileComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

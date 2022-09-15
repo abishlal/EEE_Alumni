@@ -50,7 +50,11 @@ body {
     background: #ffffff;
     color: #2e323c;
 }
-
+.description{
+    flex: 2 0 auto;
+    width: 60vw;
+    height: 200px;
+}
 .card {
     background: #ffffff;
     -webkit-border-radius: 5px;

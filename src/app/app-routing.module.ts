@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminComponent } from './admin/admin.component';
 import { BatchComponent } from './batch/batch.component';
 import { CardComponent } from './card/card.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path:"edit-profile", component:EditProfileComponent},
   {path:'verification-email', component:EmailComponent},
   {path:'verification-password', component:PasswordComponent},
-  {path:'reset-password', component:PasswordResetComponent}
+  {path:'reset-password', component:PasswordResetComponent},
+  {path:'admin', component:AdminComponent}
 ];
 
 @NgModule({

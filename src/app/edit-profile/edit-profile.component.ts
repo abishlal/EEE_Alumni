@@ -11,7 +11,12 @@ export class EditProfileComponent implements OnInit {
   workexperience:number[]=[1,2];
   @ViewChild("profileform") myNameElem: ElementRef|undefined;
  
-  constructor() { }
+  constructor() { 
+    this.myNameElem?.nativeElement.addEventListener("click",()=>{
+      console.log("submit");
+      
+    })
+  }
 
   ngOnInit(): void {
   

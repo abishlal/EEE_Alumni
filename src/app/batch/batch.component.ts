@@ -5,7 +5,7 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 @Component({
   selector: 'app-batch',
   templateUrl: './batch.component.html',
-  styleUrls: ['./batch.component.css'],
+  styleUrls: ['./batch.component.scss'],
 })
 export class BatchComponent implements OnInit {
 
@@ -22,6 +22,7 @@ export class BatchComponent implements OnInit {
         this.batch.push(val[iterator]);
       }
     });
+    console.log(this.batch)
   }
 
   ngOnInit(): void {}

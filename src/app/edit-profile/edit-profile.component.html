@@ -23,74 +23,74 @@
         </div>
         <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
             <div class="card h-100" >
-                <form class="card-body" #profileform >
-                    <div class="row gutters">
+                <form class="card-body" #form="ngForm" (submit)="submitForm(form.value)">
+                    <div class="row gutters" ngModelGroup="Personal_Details">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <h6 class="mb-2 text-primary">Personal Details</h6>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="fullName">Full Name</label>
-                                <input type="text" class="form-control" id="fullName" placeholder="Enter full name">
+                                <input type="text"  name="fullname" class="form-control" id="fullName" placeholder="Enter full name" ngModel>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="eMail">Email</label>
-                                <input type="email" class="form-control" id="eMail" placeholder="Enter email ID">
+                                <input type="email" class="form-control" name="eMail" placeholder="Enter email ID" ngModel>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="phone">Phone</label>
-                                <input type="text" class="form-control" id="phone" placeholder="Enter phone number">
+                                <input type="text" class="form-control" name="phone" placeholder="Enter phone number" ngModel>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="website">Website URL</label>
-                                <input type="url" class="form-control" id="website" placeholder="Website url">
+                                <input type="url" class="form-control" name="website" placeholder="Website url" ngModel>
                             </div>
                         </div>
                     </div>
-                    <div class="row gutters">
+                    <div class="row gutters" ngModelGroup="Academic_Details">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <h6 class="mb-2 text-primary">Academic Details</h6>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="fullName">Schooling</label>
-                                <input type="text" class="form-control" id="fullName" placeholder="Enter School name">
+                                <input type="text" class="form-control" name="school_name" placeholder="Enter School name" ngModel>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="eMail">College</label>
-                                <input type="text" class="form-control" id="eMail" placeholder="Enter College name">
+                                <input type="text" class="form-control" name="college_name" placeholder="Enter College name" ngModel>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="eMail">Year of completion</label>
-                                <input type="text" class="form-control" id="eMail" placeholder="Enter Year of completion">
+                                <input type="text" class="form-control" name="Year_of_completion" placeholder="Enter Year of completion" ngModel>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="phone">Academic Acheivements</label>
-                                <input type="text" class="form-control" id="phone" placeholder="Mention about your Academic Acheivements">
+                                <input type="text" class="form-control" name="Academic_Acheivements" placeholder="Mention about your Academic Acheivements" ngModel>
                             </div>
                         </div>
                         
                     </div>
-                    <div class="row gutters">
+                    <div class="row gutters" >
 
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <h6 class="mb-2 text-primary">Work experience</h6>
                         </div>
                     </div>
                     
-                    <div class="row gutters" *ngFor="let exp of workexperience;">
+                    <div class="row gutters" *ngFor="let exp of workexperience;" ngModelGroup="Work experience">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <h6 class="mb-2 text-primary">Experience {{exp}}</h6>
                     <button type="button" id="submit" name="submit" class="btn btn-primary" (click)="removeExperience()">Remove experience</button>
@@ -100,31 +100,31 @@
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="fullName">Organisation</label>
-                                <input type="text" class="form-control" id="fullName" placeholder="Enter Organisation name">
+                                <input type="text" class="form-control" name="Organisation_name" placeholder="Enter Organisation name" ngModel>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="eMail">Job role</label>
-                                <input type="text" class="form-control" id="eMail" placeholder="Enter Job Role">
+                                <input type="text" class="form-control" name="Job_role" placeholder="Enter Job Role" ngModel>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="eMail">From</label>
-                                <input type="text" class="form-control" id="eMail" placeholder="When did you start">
+                                <input type="text" class="form-control" name="From" placeholder="When did you start" ngModel>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="phone">Till</label>
-                                <input type="text" class="form-control" id="phone" placeholder="when did you end">
+                                <input type="text" class="form-control" name="Till" placeholder="when did you end" ngModel>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="phone">Job Description</label>
-                                <input type="text" class="form-control description" id="phone" placeholder="Describe about your job">
+                                <input type="text" class="form-control description" name="Job_Description" placeholder="Describe about your job" ngModel>
                             </div>
                         </div>
                     </div>
@@ -163,7 +163,7 @@
                             <div class="text-right">
                                 <button type="button" id="submit" name="submit"
                                     class="btn btn-secondary">Cancel</button>
-                                <button type="button" id="submit" name="submit" class="btn btn-primary" (click)="submitForm()">Update</button>
+                                <button type="submit" id="submit" name="submit" class="btn btn-primary" >Update</button>
                             </div>
                         </div>
                     </div>

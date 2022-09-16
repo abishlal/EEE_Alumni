@@ -9,13 +9,9 @@ import {NgForm} from '@angular/forms';
 export class EditProfileComponent implements OnInit {
   
   workexperience:number[]=[1,2];
-  @ViewChild("profileform") myNameElem: ElementRef|undefined;
  
   constructor() { 
-    this.myNameElem?.nativeElement.addEventListener("click",()=>{
-      console.log("submit");
-      
-    })
+    
   }
 
   ngOnInit(): void {
@@ -28,9 +24,8 @@ export class EditProfileComponent implements OnInit {
     this.workexperience.pop();
   }
   
-  submitForm(){
+  submitForm(val:any){
     // e.preventdefault();
-    // console.log(e);
-    console.log(this.myNameElem?.nativeElement);
+    console.log(val);
   }
 }

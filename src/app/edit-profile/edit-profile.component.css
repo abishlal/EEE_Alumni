@@ -63,3 +63,8 @@ body {
     border: 0;
     margin-bottom: 1rem;
 }
+.flexclass{
+    display: flex;
+    width: 200%;
+    gap: 2em;
+}

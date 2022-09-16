@@ -8,7 +8,9 @@ import {NgForm} from '@angular/forms';
 })
 export class EditProfileComponent implements OnInit {
   
-  workexperience:number[]=[1,2];
+  workexperience:number[]=[1];
+  academicDetails:number[]=[1];
+  socialMedia:number[]=[1];
  
   constructor() { 
     
@@ -20,10 +22,21 @@ export class EditProfileComponent implements OnInit {
   addExperience(){
     this.workexperience.push(this.workexperience.length+1);
   }
-  removeExperience(){
-    this.workexperience.pop();
+  removeExperience(pos:number){
+    this.workexperience.splice(0,1);
   }
-  
+  addAcademicDetails(){
+    this.academicDetails.push(this.academicDetails.length+1);
+  }
+  removeAcademicDetails(pos:number){
+    this.academicDetails.splice(0,1);
+  }
+  addSocialMedia(){
+    this.socialMedia.push(this.socialMedia.length+1);
+  }
+  removeSocialMedia(pos:number){
+    this.socialMedia.splice(0,1);
+  }
   submitForm(val:any){
     // e.preventdefault();
     console.log(val);

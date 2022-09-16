@@ -1,4 +1,3 @@
-<div>main branch changes</div>
 <div class="container">
     <div class="row gutters">
         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -53,47 +52,65 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row gutters" ngModelGroup="Academic_Details">
+                    <div class="row gutters" >
+
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <h6 class="mb-2 text-primary">Academic Details</h6>
                         </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="fullName">Schooling</label>
-                                <input type="text" class="form-control" name="school_name" placeholder="Enter School name" ngModel>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="eMail">College</label>
-                                <input type="text" class="form-control" name="college_name" placeholder="Enter College name" ngModel>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="eMail">Year of completion</label>
-                                <input type="text" class="form-control" name="Year_of_completion" placeholder="Enter Year of completion" ngModel>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="phone">Academic Acheivements</label>
-                                <input type="text" class="form-control" name="Academic_Acheivements" placeholder="Mention about your Academic Acheivements" ngModel>
-                            </div>
-                        </div>
-                        
                     </div>
+                    <div *ngFor="let exp of academicDetails;">
+                    <div class="row gutters"  ngModelGroup="Academic_details{{exp}}">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <h6 class="mb-2 text-primary">Academics {{exp}}</h6>
+                    <button type="button" id="submit" name="submit" class="btn btn-primary" (click)="removeAcademicDetails(exp)">Remove Academic Details</button>
+
+                        </div>
+
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label for="fullName">School/College Name</label>
+                                <input type="text" class="form-control" name="Organisation_name" placeholder="Enter School/College Name" ngModel>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label for="eMail">Specialisation</label>
+                                <input type="text" class="form-control" name="Specialisation" placeholder="Enter Specialisation" ngModel>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label for="eMail">From</label>
+                                <input type="text" class="form-control" name="From" placeholder="When did you start" ngModel>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label for="phone">Till</label>
+                                <input type="text" class="form-control" name="Till" placeholder="when did you end" ngModel>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label for="phone">Academic Description</label>
+                                <input type="text" class="form-control description" name="Academic_Description" placeholder="Describe about your activities" ngModel>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <button type="button" id="submit" name="submit" class="btn btn-primary" (click)="addAcademicDetails()">Add Academic Details</button>
+                    
                     <div class="row gutters" >
 
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <h6 class="mb-2 text-primary">Work experience</h6>
                         </div>
                     </div>
-                    
-                    <div class="row gutters" *ngFor="let exp of workexperience;" ngModelGroup="Work experience">
+                    <div *ngFor="let exp of workexperience;">
+                    <div class="row gutters"  ngModelGroup="Work_experience{{exp}}">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <h6 class="mb-2 text-primary">Experience {{exp}}</h6>
-                    <button type="button" id="submit" name="submit" class="btn btn-primary" (click)="removeExperience()">Remove experience</button>
+                    <button type="button" id="submit" name="submit" class="btn btn-primary" (click)="removeExperience(exp)">Remove experience</button>
 
                         </div>
 
@@ -128,36 +145,38 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                     <button type="button" id="submit" name="submit" class="btn btn-primary" (click)="addExperience()">Add experience</button>
-                    <div class="row gutters">
+                    <div class="row gutters" >
+
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <h6 class="mt-3 mb-2 text-primary">Address</h6>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="Street">Street</label>
-                                <input type="name" class="form-control" id="Street" placeholder="Enter Street">
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="ciTy">City</label>
-                                <input type="name" class="form-control" id="ciTy" placeholder="Enter City">
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="sTate">State</label>
-                                <input type="text" class="form-control" id="sTate" placeholder="Enter State">
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="zIp">Zip Code</label>
-                                <input type="text" class="form-control" id="zIp" placeholder="Zip Code">
-                            </div>
+                            <h6 class="mb-2 text-primary">Social media</h6>
                         </div>
                     </div>
+                    <div *ngFor="let soc of socialMedia;">
+                    
+                    <div class="row gutters" ngModelGroup="Social_media{{soc}}">
+                        
+                        
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group flexclass">
+                    
+                                <select class="form-control" name="site" ngModel>
+                                    <option value="Github">Github</option>
+                                    <option value="Twitter">Twitter</option>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="Instagram">Instagram</option>
+                                  </select>
+                                <input type="text" class="form-control" name="link" placeholder="Enter Social media link" ngModel>
+                                <button type="button" id="submit" name="submit" class="btn btn-primary" (click)="removeSocialMedia(soc)">Remove Social Media</button>
+                    
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <button type="button" id="submit" name="submit" class="btn btn-primary" (click)="addSocialMedia()">Add Social Media</button>
+                    
                     <div class="row gutters">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="text-right">

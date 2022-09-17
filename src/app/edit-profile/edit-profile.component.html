@@ -62,10 +62,10 @@
                             <h6 class="mb-2 text-primary">Academic Details</h6>
                         </div>
                     </div>
-                    <div>
-                        <div class="row gutters" ngModelGroup="Academic_details_1">
+                    <div *ngFor="let acd of current_user.Academic_details;let i=index;">
+                        <div class="row gutters" ngModelGroup="Academic_details_{{i}}">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <h6 class="mb-2 text-primary">Academics 1</h6>
+                                <h6 class="mb-2 text-primary">Academics {{i+1}}</h6>
                             </div>
 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -73,138 +73,50 @@
                                     <label for="fullName">School/College Name</label>
                                     <input type="text" class="form-control" name="Organisation_name"
                                         placeholder="Enter School/College Name"
-                                        ngModel="{{current_user.Academic_details_1.Organisation_name}}">
+                                        ngModel="{{acd.Organisation_name}}">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="eMail">Specialisation</label>
                                     <input type="text" class="form-control" name="Specialisation"
-                                        placeholder="Enter Specialisation" ngModel="{{current_user.Academic_details_1.Specialisation}}">
+                                        placeholder="Enter Specialisation" ngModel="{{acd.Organisation_name}}">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="eMail">From</label>
                                     <input type="text" class="form-control" name="From" placeholder="When did you start"
-                                        ngModel="{{current_user.Academic_details_1.From}}">
+                                        ngModel="{{acd.Organisation_name}}">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="phone">Till</label>
                                     <input type="text" class="form-control" name="Till" placeholder="when did you end"
-                                        ngModel="{{current_user.Academic_details_1.Till}}">
+                                        ngModel="{{acd.Organisation_name}}">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="phone">Academic Description</label>
                                     <input type="text" class="form-control description" name="Academic_Description"
-                                        placeholder="Describe about your activities" ngModel="{{current_user.Academic_details_1.Academic_Description}}">
+                                        placeholder="Describe about your activities" ngModel="{{acd.Organisation_name}}">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <div class="row gutters" ngModelGroup="Academic_details_2">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <h6 class="mb-2 text-primary">Academics 2</h6>
-                            </div>
-
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="fullName">School/College Name</label>
-                                    <input type="text" class="form-control" name="Organisation_name"
-                                        placeholder="Enter School/College Name"
-                                        ngModel="{{current_user.Academic_details_2.Organisation_name}}">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="eMail">Specialisation</label>
-                                    <input type="text" class="form-control" name="Specialisation"
-                                        placeholder="Enter Specialisation" ngModel="{{current_user.Academic_details_2.Specialisation}}">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="eMail">From</label>
-                                    <input type="text" class="form-control" name="From" placeholder="When did you start"
-                                        ngModel="{{current_user.Academic_details_2.From}}">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="phone">Till</label>
-                                    <input type="text" class="form-control" name="Till" placeholder="when did you end"
-                                        ngModel="{{current_user.Academic_details_2.Till}}">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="phone">Academic Description</label>
-                                    <input type="text" class="form-control description" name="Academic_Description"
-                                        placeholder="Describe about your activities" ngModel="{{current_user.Academic_details_2.Academic_Description}}">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="row gutters" ngModelGroup="Academic_details_3">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <h6 class="mb-2 text-primary">Academics 3</h6>
-                            </div>
-
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="fullName">School/College Name</label>
-                                    <input type="text" class="form-control" name="Organisation_name"
-                                        placeholder="Enter School/College Name"
-                                        ngModel="{{current_user.Academic_details_3.Organisation_name}}">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="eMail">Specialisation</label>
-                                    <input type="text" class="form-control" name="Specialisation"
-                                        placeholder="Enter Specialisation" ngModel="{{current_user.Academic_details_3.Specialisation}}">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="eMail">From</label>
-                                    <input type="text" class="form-control" name="From" placeholder="When did you start"
-                                        ngModel="{{current_user.Academic_details_3.From}}">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="phone">Till</label>
-                                    <input type="text" class="form-control" name="Till" placeholder="when did you end"
-                                        ngModel="{{current_user.Academic_details_3.Till}}">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="phone">Academic Description</label>
-                                    <input type="text" class="form-control description" name="Academic_Description"
-                                        placeholder="Describe about your activities" ngModel="{{current_user.Academic_details_3.Academic_Description}}">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row gutters">
+                 <button (click)="add_Data('Academic_details')">add</button>
+                     <div class="row gutters">
 
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <h6 class="mb-2 text-primary">Work experience</h6>
                         </div>
                     </div>
-                    <div>
-                        <div class="row gutters" ngModelGroup="Work_experience_1">
+                    <div *ngFor="let we of current_user.Work_experience;let i=index;">
+                        <div class="row gutters" ngModelGroup="Work_experience_{{i}}">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <h6 class="mb-2 text-primary">Experience 1</h6>
+                                <h6 class="mb-2 text-primary">Experience {{i+1}}</h6>
 
                             </div>
 
@@ -212,222 +124,70 @@
                                 <div class="form-group">
                                     <label for="fullName">Organisation</label>
                                     <input type="text" class="form-control" name="Organisation_name"
-                                        placeholder="Enter Organisation name" ngModel="{{current_user.Work_experience_1.Organisation_name}}">
+                                        placeholder="Enter Organisation name" ngModel="{{we.Organisation_name}}">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="eMail">Job role</label>
                                     <input type="text" class="form-control" name="Job_role" placeholder="Enter Job Role"
-                                        ngModel="{{current_user.Work_experience_1.Job_role}}">
+                                        ngModel="{{we.Job_role}}">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="eMail">From</label>
                                     <input type="text" class="form-control" name="From" placeholder="When did you start"
-                                        ngModel="{{current_user.Work_experience_1.From}}">
+                                        ngModel="{{we.From}}">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="phone">Till</label>
                                     <input type="text" class="form-control" name="Till" placeholder="when did you end"
-                                        ngModel="{{current_user.Work_experience_1.Till}}">
+                                        ngModel="{{we.Till}}">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="phone">Job Description</label>
                                     <input type="text" class="form-control description" name="Job_Description"
-                                        placeholder="Describe about your job" ngModel="{{current_user.Work_experience_1.Job_Description}}">
+                                        placeholder="Describe about your job" ngModel="{{we.Job_Description}}">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <div class="row gutters" ngModelGroup="Work_experience_2">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <h6 class="mb-2 text-primary">Experience 2</h6>
-
-                            </div>
-
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="fullName">Organisation</label>
-                                    <input type="text" class="form-control" name="Organisation_name"
-                                        placeholder="Enter Organisation name" ngModel="{{current_user.Work_experience_2.Organisation_name}}">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="eMail">Job role</label>
-                                    <input type="text" class="form-control" name="Job_role" placeholder="Enter Job Role"
-                                        ngModel="{{current_user.Work_experience_2.Job_role}}">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="eMail">From</label>
-                                    <input type="text" class="form-control" name="From" placeholder="When did you start"
-                                        ngModel="{{current_user.Work_experience_2.From}}">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="phone">Till</label>
-                                    <input type="text" class="form-control" name="Till" placeholder="when did you end"
-                                        ngModel="{{current_user.Work_experience_2.Till}}">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="phone">Job Description</label>
-                                    <input type="text" class="form-control description" name="Job_Description"
-                                        placeholder="Describe about your job" ngModel="{{current_user.Work_experience_2.Job_Description}}">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="row gutters" ngModelGroup="Work_experience_3">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <h6 class="mb-2 text-primary">Experience 3</h6>
-
-                            </div>
-
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="fullName">Organisation</label>
-                                    <input type="text" class="form-control" name="Organisation_name"
-                                        placeholder="Enter Organisation name" ngModel="{{current_user.Work_experience_3.Organisation_name}}">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="eMail">Job role</label>
-                                    <input type="text" class="form-control" name="Job_role" placeholder="Enter Job Role"
-                                        ngModel="{{current_user.Work_experience_3.Job_role}}">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="eMail">From</label>
-                                    <input type="text" class="form-control" name="From" placeholder="When did you start"
-                                        ngModel="{{current_user.Work_experience_3.From}}">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="phone">Till</label>
-                                    <input type="text" class="form-control" name="Till" placeholder="when did you end"
-                                        ngModel="{{current_user.Work_experience_3.Till}}">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="phone">Job Description</label>
-                                    <input type="text" class="form-control description" name="Job_Description"
-                                        placeholder="Describe about your job" ngModel="{{current_user.Work_experience_3.Job_Description}}">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <button (click)="add_Data('Work_experience')">add</button>
                     <div class="row gutters">
 
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <h6 class="mb-2 text-primary">Social media</h6>
                         </div>
-                    </div>
-                    <div>
+                    </div> 
+                    <div *ngFor="let sm of current_user.Social_media;let i=index;">
 
-                        <div class="row gutters" ngModelGroup="Social_media_1">
+
+                        <div class="row gutters" ngModelGroup="Social_media_{{i}}">
 
 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group flexclass">
 
-                                    <select class="form-control" name="site" ngModel="{{current_user.Social_media_2.site}}">
+                                    <select class="form-control" name="site" ngModel="{{sm.site}}">
                                         <option value="Github">Github</option>
                                         <option value="Twitter">Twitter</option>
                                         <option value="Facebook">Facebook</option>
                                         <option value="Instagram">Instagram</option>
                                     </select>
                                     <input type="text" class="form-control" name="link"
-                                        placeholder="Enter Social media link" ngModel="{{current_user.Social_media_1.link}}">
+                                        placeholder="Enter Social media link" ngModel="{{sm.link}}">
 
                                 </div>
                             </div>
 
                         </div>
                     </div>
-                    <div>
-
-                        <div class="row gutters" ngModelGroup="Social_media_2">
-
-
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group flexclass">
-
-                                    <select class="form-control" name="site" ngModel="{{current_user.Social_media_2.site}}">
-                                        <option value="Github">Github</option>
-                                        <option value="Twitter">Twitter</option>
-                                        <option value="Facebook">Facebook</option>
-                                        <option value="Instagram">Instagram</option>
-                                    </select>
-                                    <input type="text" class="form-control" name="link"
-                                        placeholder="Enter Social media link" ngModel="{{current_user.Social_media_2.link}}">
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div>
-
-                        <div class="row gutters" ngModelGroup="Social_media_3">
-
-
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group flexclass">
-
-                                    <select class="form-control" name="site" ngModel="{{current_user.Social_media_3.site}}">
-                                        <option value="Github">Github</option>
-                                        <option value="Twitter">Twitter</option>
-                                        <option value="Facebook">Facebook</option>
-                                        <option value="Instagram">Instagram</option>
-                                    </select>
-                                    <input type="text" class="form-control" name="link"
-                                        placeholder="Enter Social media link" ngModel="{{current_user.Social_media_3.link}}">
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div>
-
-                        <div class="row gutters" ngModelGroup="Social_media_4">
-
-
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group flexclass">
-
-                                    <select class="form-control" name="site" ngModel="{{current_user.Social_media_4.site}}">
-                                        <option value="Github">Github</option>
-                                        <option value="Twitter">Twitter</option>
-                                        <option value="Facebook">Facebook</option>
-                                        <option value="Instagram">Instagram</option>
-                                    </select>
-                                    <input type="text" class="form-control" name="link"
-                                        placeholder="Enter Social media link" ngModel="{{current_user.Social_media_4.link}}">
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                    <button (click)="add_Data('Social_media')">add</button>
 
                     <div class="row gutters">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -435,7 +195,7 @@
                                 <button type="submit" id="submit" name="submit" class="btn btn-primary">Update</button>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                 </form>
             </div>
         </div>

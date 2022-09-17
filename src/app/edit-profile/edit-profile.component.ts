@@ -16,18 +16,55 @@ export class EditProfileComponent implements OnInit {
   submitForm(val: any) {
     console.log(val);
     const db = getDatabase();
+    
     set(ref(db, 'users/' + this.cur_user.user.uid), {
-      data: val,
+      data:this.convertSubmission(val),
     });
   }
-
-  current_user: any;
+  convertSubmission(val: any):any{
+      const vals:string[]=['Academic_details',"Social_media","Work_experience"];
+      const tempobj:any={
+        "Personal_Details": val.Personal_Details,
+        "Academic_details": [],
+        "Social_media": [],
+        "Work_experience": []
+    };
+      for (const k of vals) {
+        
+        for (const key in val) {
+          if(key.startsWith(k)){
+              
+              tempobj[k].push(val[key]);
+            
+          }
+        }
+      }
+      return tempobj;
+      
+  }
+tempval:any={
+  "Academic_details": [],
+  "Personal_Details": {
+      "eMail": "abishlal",
+      "fullname": "abishlal",
+      "phone": "abishlal",
+      "website": "abishlal"
+  },
+  "Social_media": [],
+  "Work_experience": []
+};
+  current_user:any=this.tempval;
   getuser() {
     const db = getDatabase();
     const starCountRef = ref(db, 'users/' + this.cur_user.user.uid + '/data');
     onValue(starCountRef, (snapshot) => {
       console.log(snapshot.val());
       this.current_user = snapshot.val();
+      console.log(this.current_user);
+      
     });
+  }
+  add_Data(type:string){
+    this.current_user[type].push(this.current_user[type][0])
   }
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
-import { CurrentuseService } from '../currentuse.service';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +10,8 @@ export class HeaderComponent implements OnInit {
   auth = getAuth();
   userauth: any;
 
-  constructor(private cur_user: CurrentuseService) {
+  constructor() {
     onAuthStateChanged(this.auth, (user) => {
-      console.log(user)
       if(user?.emailVerified){
         this.userauth = user;
       }

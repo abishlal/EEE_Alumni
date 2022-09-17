@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
-import { Router } from '@angular/router';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -11,15 +10,9 @@ export class CurrentuseService {
   user:any
 
   constructor() { 
-    // onAuthStateChanged(this.auth, (user) => {
-    //   this.user = user
-    //   console.log(this.user)
-    // });
+    onAuthStateChanged(this.auth, (user) => {
+      this.user = user
+    });
   }
-
-  getdata(){
-    console.log(this.auth.currentUser)
-  }
-
 
 }

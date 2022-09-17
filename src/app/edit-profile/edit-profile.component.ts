@@ -1,44 +1,33 @@
-import { Component, OnInit,ElementRef,ViewChild } from '@angular/core';
-import {NgForm} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { getDatabase, ref, set, onValue } from 'firebase/database';
+import { CurrentuseService } from '../currentuse.service';
 
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
-  styleUrls: ['./edit-profile.component.css']
+  styleUrls: ['./edit-profile.component.css'],
 })
 export class EditProfileComponent implements OnInit {
-  
-  workexperience:number[]=[1];
-  academicDetails:number[]=[1];
-  socialMedia:number[]=[1];
- 
-  constructor() { 
-    
+  constructor(private cur_user: CurrentuseService) {
+    this.getuser();
   }
 
-  ngOnInit(): void {
-  
-  }
-  addExperience(){
-    this.workexperience.push(this.workexperience.length+1);
-  }
-  removeExperience(pos:number){
-    this.workexperience.splice(0,1);
-  }
-  addAcademicDetails(){
-    this.academicDetails.push(this.academicDetails.length+1);
-  }
-  removeAcademicDetails(pos:number){
-    this.academicDetails.splice(0,1);
-  }
-  addSocialMedia(){
-    this.socialMedia.push(this.socialMedia.length+1);
-  }
-  removeSocialMedia(pos:number){
-    this.socialMedia.splice(0,1);
-  }
-  submitForm(val:any){
-    // e.preventdefault();
+  ngOnInit(): void {}
+  submitForm(val: any) {
     console.log(val);
+    const db = getDatabase();
+    set(ref(db, 'users/' + this.cur_user.user.uid), {
+      data: val,
+    });
+  }
+
+  current_user: any;
+  getuser() {
+    const db = getDatabase();
+    const starCountRef = ref(db, 'users/' + this.cur_user.user.uid + '/data');
+    onValue(starCountRef, (snapshot) => {
+      console.log(snapshot.val());
+      this.current_user = snapshot.val();
+    });
   }
 }

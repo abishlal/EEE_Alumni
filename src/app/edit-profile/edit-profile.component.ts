@@ -27,7 +27,8 @@ export class EditProfileComponent implements OnInit {
         "Personal_Details": val.Personal_Details,
         "Academic_details": [],
         "Social_media": [],
-        "Work_experience": []
+        "Work_experience": [],
+        "About":val.About
     };
       for (const k of vals) {
         
@@ -45,11 +46,12 @@ export class EditProfileComponent implements OnInit {
 tempval:any={
   "Academic_details": [],
   "Personal_Details": {
-      "eMail": "abishlal",
+      "email": "abishlal",
       "fullname": "abishlal",
       "phone": "abishlal",
-      "website": "abishlal"
+      "website": "abishlal",
   },
+  "About":"my about",
   "Social_media": [],
   "Work_experience": []
 };

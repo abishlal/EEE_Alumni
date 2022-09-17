@@ -1,5 +1,7 @@
 <div class="container">
     <div class="row gutters">
+        <form class="card-body" #form="ngForm" (submit)="submitForm(form.value)">
+                
         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
             <div class="card h-100">
                 <div class="card-body">
@@ -9,12 +11,13 @@
                                 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
                             </div>
                             <h5 class="user-name">{{current_user.Personal_Details.fullname}}</h5>
-                            <h6 class="user-email">yuki@Maxwell.com</h6>
+                            <h6 class="user-email">{{current_user.Personal_Details.email}}</h6>
                         </div>
                         <div class="about">
                             <h5>About</h5>
-                            <p>I'm Yuki. Full Stack Designer I enjoy creating user-centric, delightful and human
-                                experiences.</p>
+                            <input type="text" name="About" class="form-control" 
+                                    placeholder="About you" ngModel="{{current_user.About}}">
+                            
                         </div>
                     </div>
                 </div>
@@ -22,7 +25,6 @@
         </div>
         <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
             <div class="card h-100">
-                <form class="card-body" #form="ngForm" (submit)="submitForm(form.value)">
                     <div class="row gutters" ngModelGroup="Personal_Details">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <h6 class="mb-2 text-primary">Personal Details</h6>
@@ -37,7 +39,7 @@
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="eMail">Email</label>
-                                <input type="email" class="form-control" name="eMail" placeholder="Enter email ID"
+                                <input type="email" class="form-control" name="email" placeholder="Enter email ID"
                                     ngModel="{{current_user.Personal_Details.eMail}}">
                             </div>
                         </div>
@@ -196,8 +198,8 @@
                             </div>
                         </div>
                     </div> 
-                </form>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>

@@ -12,7 +12,7 @@ export class ViewProfileComponent implements OnInit {
   localdb:any={
     "Academic_details": [],
     "Personal_Details": {
-        "eMail": "abishlal",
+        "email": "abishlal",
         "fullname": "abishlal",
         "phone": "abishlal",
         "website": "abishlal"

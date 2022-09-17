@@ -1,0 +1,21 @@
+.maincontainer{
+    height: 90vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.admincard{
+    width:300px;
+    height:300px;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    cursor: pointer;
+}
+.admincard>i{
+    font-size: 5em;
+}

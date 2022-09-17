@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { getDatabase, ref, onValue } from 'firebase/database';
 
 @Component({
   selector: 'app-view-profile',
@@ -118,19 +119,28 @@ export class ViewProfileComponent implements OnInit {
   }
   
   }
-  user:any|undefined;
+  user:any=this.localdb["viki"];
   constructor(private route: ActivatedRoute) {
+    let val: any;
+    const db = getDatabase();
+    const starCountRef = ref(db, 'users');
+    onValue(starCountRef, (snapshot) => {
+      val = snapshot.val();
+      const id = this.route.snapshot.paramMap.get('id');
+      console.log(id)
+      if(id && id in val){
+        this.user=val[id].data;
+        this.user.Work_experience=[this.user.Work_experience_1,this.user.Work_experience_2,this.user.Work_experience_3]
+        this.user.Academic_details=[this.user.Academic_details_1,this.user.Academic_details_2,this.user.Academic_details_3]
+        console.log(val[id].data);
+      }
+ 
+    });
     
   }
 
   
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    console.log(id)
-    if(id && id in this.localdb)
-    this.user=this.localdb[id]
-    else
-    this.user=this.localdb["viki"]
-    
+      
 }
 }

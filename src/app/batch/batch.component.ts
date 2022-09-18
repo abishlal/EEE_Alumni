@@ -22,7 +22,6 @@ export class BatchComponent implements OnInit {
         this.batch.push(val[iterator]);
       }
     });
-    console.log(this.batch)
   }
 
   ngOnInit(): void {}

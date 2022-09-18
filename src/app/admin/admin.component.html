@@ -10,35 +10,35 @@
         <h3>Create User</h3>
     </div>
     <div *ngIf="!showcard && userform">
-        
-    <form class="card-body" #form="ngForm" (submit)="submitForm(form.value,'user')" >
+
+        <form class="card-body" #form="ngForm" (submit)="submitForm(form.value,'user')">
             <div class="form-group">
                 <label for="eMail">Email</label>
                 <input type="email" class="form-control" name="eMail" placeholder="Enter email ID" ngModel>
             </div>
-        
-        <div class="form-group">
+
+            <div class="form-group">
                 <label for="fullName">Password</label>
-                <input type="text"  name="fullname" class="form-control" id="fullName" placeholder="Enter Password" ngModel>
+                <input type="text" name="fullname" class="form-control" id="fullName" placeholder="Enter Password"
+                    ngModel>
             </div>
-        <button type="submit" id="submit" name="submit" class="btn btn-primary" >Create User</button>
-    </form>
-    
-</div>
-<div *ngIf="!showcard && !userform">
-    
-    <form class="card-body" #form="ngForm" (submit)="submitForm(form.value,'batch')" >
+            <button type="submit" id="submit" name="submit" class="btn btn-primary">Create User</button>
+        </form>
+
+    </div>
+    <div *ngIf="!showcard && !userform">
+        <form class="card-body" (ngSubmit)="onsubmit()">
             <div class="form-group">
                 <label for="eMail">From</label>
-                <input type="email" class="form-control" name="eMail" placeholder="From date" ngModel>
+                <input type="email" class="form-control" [formControl]="start_year" placeholder="From Year">
             </div>
-        
+
             <div class="form-group">
                 <label for="fullName">To</label>
-                <input type="text"  name="fullname" class="form-control" id="fullName" placeholder="To date" ngModel>
+                <input type="text" class="form-control" [formControl]="end_year" placeholder="To Year">
             </div>
-        <button type="submit" id="submit" name="submit" class="btn btn-primary" >Create group</button>
-    </form>
-    
-</div>
+            <button type="submit" id="submit" name="submit" class="btn btn-primary">Create group</button>
+        </form>
+
+    </div>
 </div>

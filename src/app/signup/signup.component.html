@@ -37,6 +37,21 @@
                             </div>
                         </div>
 
+                        <div>
+
+                            <div class="row gutters">
+                                <div class="col-xl-6">
+                                    <label class="form-label" for="batch">Batch</label>
+                                    <div class="form-group flexclass">
+                                        <select class="form-control" formControlName="batch_year">
+                                            <option *ngFor="let batch of batch" [ngValue]="batch.end_year">{{batch.start_year}} To {{batch.end_year}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </div>
+
                         <!-- Email input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="form3Example3">Email address</label>

@@ -12,7 +12,6 @@ import {
   onValue,
   push,
   child,
-  update,
 } from 'firebase/database';
 import { Router } from '@angular/router';
 

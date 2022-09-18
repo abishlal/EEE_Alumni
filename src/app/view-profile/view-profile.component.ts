@@ -9,29 +9,20 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 })
 export class ViewProfileComponent implements OnInit {
   
-  localdb:any={
-    "Academic_details": [],
-    "Personal_Details": {
-        "email": "abishlal",
-        "fullname": "abishlal",
-        "phone": "abishlal",
-        "website": "abishlal"
-    },
-    "Social_media": [],
-    "Work_experience": []
-  }
-  user:any=this.localdb["viki"];
+  user:any|undefined;
+  userexists:boolean=false;
   constructor(private route: ActivatedRoute) {
     let val: any;
-    const id = this.route.snapshot.paramMap.get('id');
     const db = getDatabase();
-    const starCountRef = ref(db, 'users/' + id + '/data');
+    const starCountRef = ref(db, 'users/');
     onValue(starCountRef, (snapshot) => {
       val = snapshot.val();
       const id = this.route.snapshot.paramMap.get('id');
       console.log(id)
+      
       if(id && id in val){
         this.user=val[id].data;
+        this.userexists=true;
         console.log(val[id].data);
       }
     });

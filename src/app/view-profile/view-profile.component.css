@@ -139,4 +139,9 @@
     .page-break {
       padding-top: 5rem;
       page-break-before: always; } }
-  
+      .ulnav{
+        display: flex;
+       }
+       .ulnav>ul{
+           list-style: none;
+       }

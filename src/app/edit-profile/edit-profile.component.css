@@ -68,3 +68,9 @@ body {
     width: 200%;
     gap: 2em;
 }
+.ulnav{
+ display: flex;
+}
+.ulnav>ul{
+    list-style: none;
+}

@@ -17,15 +17,15 @@
       <h2 class="h1 mt-2" data-aos="fade-left" data-aos-delay="0">{{user.Personal_Details.fullname}}</h2>
       <p data-aos="fade-left" data-aos-delay="100">Graphic Designer & Web Developer</p>
       <div class="site-nav">
-        <nav role="navigation">
-          <ul class="nav justify-content-center">
-            <li class="nav-item"><a class="nav-link" href="https://twitter.com/templateflip" title="Twitter"><i class="fab fa-twitter"></i><span class="menu-title sr-only">Twitter</span></a>
+        <nav role="navigation" class="ulnav">
+          <ul *ngFor="let sm of user.Social_media">
+            <li *ngIf="sm.site=='Twitter'" class="nav-item"><a class="nav-link" href="https://twitter.com/templateflip" title="Twitter"><i class="fab fa-twitter"></i><span class="menu-title sr-only">Twitter</span></a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/templateflip" title="Facebook"><i class="fab fa-facebook"></i><span class="menu-title sr-only">Facebook</span></a>
+            <li *ngIf="sm.site=='Facebook'" class="nav-item"><a class="nav-link" href="https://www.facebook.com/templateflip" title="Facebook"><i class="fab fa-facebook"></i><span class="menu-title sr-only">Facebook</span></a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/templateflip" title="Instagram"><i class="fab fa-instagram"></i><span class="menu-title sr-only">Instagram</span></a>
+            <li *ngIf="sm.site=='Instagram'" class="nav-item"><a class="nav-link" href="https://www.instagram.com/templateflip" title="Instagram"><i class="fab fa-instagram"></i><span class="menu-title sr-only">Instagram</span></a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="https://github.com/templateflip" title="Github"><i class="fab fa-github"></i><span class="menu-title sr-only">Github</span></a>
+            <li *ngIf="sm.site=='Github'" class="nav-item"><a class="nav-link" href="https://github.com/templateflip" title="Github"><i class="fab fa-github"></i><span class="menu-title sr-only">Github</span></a>
             </li>
           </ul>
         </nav>
@@ -38,34 +38,24 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="h3 mb-3">About Me</h2>
-      <p>Hello! I’m Joyce Harrison. I am passionate about UI/UX design and Web Design. I am a skilled Front-end Developer and master of Graphic Design tools such as Photoshop and Sketch.</p>
+   <p>{{user.About}}</p>
     </div>
     <div class="col-md-5 offset-md-1">
       <div class="row mt-2">
-        <div class="col-sm-4">
-          <div class="pb-1">Age</div>
-        </div>
-        <div class="col-sm-8">
-          <div class="pb-1 text-secondary">28</div>
-        </div>
+        
         <div class="col-sm-4">
           <div class="pb-1">Email</div>
         </div>
         <div class="col-sm-8">
-          <div class="pb-1 text-secondary">Joyce@company.com</div>
+          <div class="pb-1 text-secondary">{{user.Personal_Details.email}}</div>
         </div>
         <div class="col-sm-4">
           <div class="pb-1">Phone</div>
         </div>
         <div class="col-sm-8">
-          <div class="pb-1 text-secondary">+0718-111-0011</div>
+          <div class="pb-1 text-secondary">{{user.Personal_Details.phone}}</div>
         </div>
-        <div class="col-sm-4">
-          <div class="pb-1">Address</div>
-        </div>
-        <div class="col-sm-8">
-          <div class="pb-1 text-secondary">140, City Center, New York, U.S.A</div>
-        </div>
+       
       </div>
     </div>
   </div>

@@ -35,26 +35,49 @@ export class EditProfileComponent implements OnInit {
         for (const key in val) {
           if(key.startsWith(k)){
               
-              tempobj[k].push(val[key]);
-            
+            tempobj[k].push(val[key]); 
           }
+
         }
       }
+      console.log(tempobj);
+      
       return tempobj;
       
   }
 tempval:any={
-  "Academic_details": [],
+  "About": "my about",
+  "Academic_details": [
+      {
+          "Academic_Description": "",
+          "From": "",
+          "Organisation_name": "",
+          "Specialisation": "",
+          "Till": ""
+      }
+  ],
   "Personal_Details": {
-      "email": "abishlal",
+      "email": "",
       "fullname": "abishlal",
       "phone": "abishlal",
-      "website": "abishlal",
+      "website": "abishlal"
   },
-  "About":"my about",
-  "Social_media": [],
-  "Work_experience": []
-};
+  "Social_media": [
+      {
+          "link": "adas",
+          "site": "Github"
+      }
+  ],
+  "Work_experience": [
+      {
+          "From": "",
+          "Job_Description": "",
+          "Job_role": "",
+          "Organisation_name": "",
+          "Till": ""
+      }
+  ]
+}
   current_user:any=this.tempval;
   getuser() {
     const db = getDatabase();
@@ -67,6 +90,10 @@ tempval:any={
     });
   }
   add_Data(type:string){
-    this.current_user[type].push(this.current_user[type][0])
+    console.log(this.current_user);
+    if(type in this.current_user)
+      this.current_user[type].push(this.current_user[type][0])
+    else 
+    this.current_user[type]=[this.tempval[type][0]];
   }
 }

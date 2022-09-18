@@ -5,7 +5,15 @@ import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
 } from 'firebase/auth';
-import { getDatabase, ref, set } from 'firebase/database';
+import {
+  getDatabase,
+  ref,
+  set,
+  onValue,
+  push,
+  child,
+  update,
+} from 'firebase/database';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +22,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
-  constructor(private route: Router) {}
+  constructor(private route: Router) {
+    this.getbatch();
+  }
 
   error: any;
   message: string = '';
@@ -27,97 +37,62 @@ export class SignupComponent implements OnInit {
     lname: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     pass: new FormControl('', [Validators.required, Validators.minLength(8)]),
+    batch_year: new FormControl('', [Validators.required]),
   });
 
-  // data: any = {
-  //   Personal_Details: {
-  //     eMail: '',
-  //     first_name: '',
-  //     last_name: '',
-  //     phone: '',
-  //     website: '',
-  //   },
-  //   Academic_details_1: {
-  //     Academic_Description: '',
-  //     From: '',
-  //     Organisation_name: '',
-  //     Specialisation: '',
-  //     Till: '',
-  //   },
-  //   Academic_details_2: {
-  //     Academic_Description: '',
-  //     From: '',
-  //     Organisation_name: '',
-  //     Specialisation: '',
-  //     Till: '',
-  //   },
-  //   Academic_details_3: {
-  //     Academic_Description: '',
-  //     From: '',
-  //     Organisation_name: '',
-  //     Specialisation: '',
-  //     Till: '',
-  //   },
-  //   Academic_details_4: {
-  //     Academic_Description: '',
-  //     From: '',
-  //     Organisation_name: '',
-  //     Specialisation: '',
-  //     Till: '',
-  //   },
-  //   Work_experience_1: {
-  //     From: '',
-  //     Job_Description: '',
-  //     Job_role: 'sdf',
-  //     Organisation_name: '',
-  //     Till: '',
-  //   },
-  //   Work_experience_2: {
-  //     From: '',
-  //     Job_Description: '',
-  //     Job_role: 'sdf',
-  //     Organisation_name: '',
-  //     Till: '',
-  //   },
-  //   Work_experience_3: {
-  //     From: '',
-  //     Job_Description: '',
-  //     Job_role: 'sdf',
-  //     Organisation_name: '',
-  //     Till: '',
-  //   },
-  //   Work_experience_4: {
-  //     From: '',
-  //     Job_Description: '',
-  //     Job_role: 'sdf',
-  //     Organisation_name: '',
-  //     Till: '',
-  //   },
-  //   Social_media_1: { link: '', site: '' },
-  //   Social_media_2: { link: '', site: '' },
-  //   Social_media_3: { link: '', site: '' },
-  //   Social_media_4: { link: '', site: '' },
-  // };
+  batch: any = [];
+  getbatch() {
+    let val;
+    const db = getDatabase();
+    const starCountRef = ref(db, 'batch');
+    onValue(starCountRef, (snapshot) => {
+      val = snapshot.val();
+      for (const iterator in val) {
+        this.batch.push(val[iterator]);
+      }
+    });
+    console.log(this.batch);
+  }
+
+  data: any = {
+    Academic_details: [''],
+    Social_media: [''],
+    Work_experience: [''],
+  };
 
   onsubmit() {
     let fname = this.Signup.value.fname;
     let lname = this.Signup.value.lname;
     let email = this.Signup.value.email;
     let password = this.Signup.value.pass;
+    let batch = this.Signup.value.batch_year;
     const db = getDatabase();
+    const newPostKey = push(child(ref(db), 'posts'));
+    console.log(newPostKey);
 
     createUserWithEmailAndPassword(this.auth, email, password)
       .then((data) => {
-        // set(ref(db, 'users/' + data.user.uid), {
-        //   data: this.data,
-        // });
-        set(ref(db, 'users/' + data.user.uid + '/data/Personal_Details/'), {
-          user_id: data.user.uid,
-          batch: "",
-          eMail: email,
-          first_name: fname,
-          last_name: lname
+        set(ref(db, 'users/' + data.user.uid), {
+          data: this.data,
         })
+          .then(() => {
+            set(ref(db, 'users/' + data.user.uid + '/data/Personal_Details/'), {
+              user_id: data.user.uid,
+              batch: batch,
+              eMail: email,
+              first_name: fname,
+              last_name: lname,
+              website : ''
+            });
+          })
+          .then(() => {
+            const newPostKey = push(
+              child(ref(db), 'batch/' + batch + '/users/')
+            ).key;
+            set(ref(db, 'batch/' + batch + '/users/' + newPostKey), {
+              id: data.user.uid,
+            });
+          })
           .then(() => {
             sendEmailVerification(this.auth.currentUser).then(() => {
               this.route.navigate(['/verification-email']);

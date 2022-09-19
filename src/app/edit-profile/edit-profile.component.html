@@ -6,11 +6,18 @@
                     <div class="card-body" ngModelGroup="Personal_Details">
                         <div class="account-settings">
                             <div class="user-profile">
-                                <div class="user-avatar">
-                                    <img src="{{current_user.Personal_Details.first_name}}" alt="profile_pic">
-                                    <input type="file" id="profile_pic" name="profile_pic" accept=".jpg, .jpeg, .png" />
-                                    <button class="form-control btn btn-primary" (click)="upload()">Submit</button>
+                                
+                                <div class="avatar-upload">
+                                    <div class="avatar-edit">
+                                        <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" (change)="uploadimg($event)" />
+                                        <label for="imageUpload"></label>
+                                    </div>
+                                    <div class="avatar-preview">
+                                        <div id="imagePreview" style="background-image: url({{this.userimgpath}});">
+                                        </div>
+                                    </div>
                                 </div>
+                                <button class="btn btn-primary mybutton"  (click)="upload()">Submit</button>
                                 <h5 class="user-name">{{current_user.Personal_Details.fullname}}</h5>
                                 <h6 class="user-email">{{current_user.Personal_Details.email}}</h6>
                             </div>
@@ -24,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <div class="offset-3 col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+            <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                 <div class="card h-100">
                     <div class="row gutters" ngModelGroup="Personal_Details">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -114,9 +121,14 @@
                                         ngModel="{{acd.Organisation_name}}">
                                 </div>
                             </div>
+                            <div class="col d-flex justify-content-end align-items-end">
+
+                                <button class="btn btn-secondary mybutton" (click)="remove_Data('Academic_details',i)">remove</button>
+                            </div>
+                            
                         </div>
                     </div>
-                    <button class="btn btn-primary" (click)="add_Data('Academic_details')">add</button>
+                    <button class="btn btn-primary mybutton" (click)="add_Data('Academic_details')">add</button>
                     <div class="row gutters">
 
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -165,9 +177,13 @@
                                         placeholder="Describe about your job" ngModel="{{we.Job_Description}}">
                                 </div>
                             </div>
+                            <div class="col d-flex justify-content-end align-items-end">
+
+                                <button class="btn btn-secondary mybutton" (click)="remove_Data('Academic_details',i)">remove</button>
+                            </div>
                         </div>
                     </div>
-                    <button (click)="add_Data('Work_experience')" class="btn btn-primary">add</button>
+                    <button (click)="add_Data('Work_experience')" class="btn btn-primary mybutton">add</button>
                     <div class="row gutters">
 
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -197,12 +213,21 @@
 
                         </div>
                     </div>
-                    <button (click)="add_Data('Social_media')" class="btn btn-primary">add</button>
+                    <button (click)="add_Data('Social_media')" class="btn btn-primary mybutton">add</button>
 
                     <div class="row gutters">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="text-right">
-                                <button type="submit" id="submit" (click)="submitForm(form.value)" name="submit" class="btn btn-primary">Update</button>
+                                <span class="loading-btn-wrapper">
+                                    <button  [ngClass]="getupdateclass()" type="submit" id="submit" (click)="submitForm(form.value)" name="submit" >
+                                    <span class="loading-btn__text">
+                                        Update  
+                                      </span>
+                                    </button>
+                                    <span *ngIf="success">Success</span>
+                                    <span *ngIf="pending">Pending</span>
+                                    <span *ngIf="failure">Failure</span>
+                                  </span>
                             </div>
                         </div>
                     </div>

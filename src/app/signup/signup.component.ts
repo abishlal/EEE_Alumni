@@ -5,14 +5,7 @@ import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
 } from 'firebase/auth';
-import {
-  getDatabase,
-  ref,
-  set,
-  onValue,
-  push,
-  child,
-} from 'firebase/database';
+import { getDatabase, ref, set, onValue, push, child } from 'firebase/database';
 import { Router } from '@angular/router';
 
 @Component({
@@ -81,7 +74,13 @@ export class SignupComponent implements OnInit {
               eMail: email,
               first_name: fname,
               last_name: lname,
-              website : ''
+              website: '',
+              about: ''
+            });
+          })
+          .then(() => {
+            set(ref(db, 'users/' + data.user.uid ), {
+              photo_url: 'https://bootdey.com/img/Content/avatar/avatar7.png',
             });
           })
           .then(() => {

@@ -6,13 +6,10 @@
                     <h1 *ngIf="user.elite">Elite alumini</h1>
                     <img src="../../assets/img/abi.jpg" alt="card background" class="card-img">
                     <img src="../../assets/img/abish (2).jpg" alt="profile image" class="profile-img ">
-                    <h1>{{user.Personal_Details.first_name}}</h1>
+                    <h1>{{user.Personal_Details.first_name + ' ' + user.Personal_Details.last_name}}</h1>
                     <p class="job-title"> Lead Designer </p>
                     <p class="about">
-                        Lorem ipsum dolor sit amet , consectetur adipisicing elit .
-                        Adipisci , alias aliquam amet autem blanditiis commodi consectetur
-                        cum dolorem ea eos error , incidunt inventore laboriosam modi pariatur
-                        quod quos tempore tenetur .
+                        {{user.Personal_Details.about}}
                     </p>
                     <a routerLink="/profile/view/{{user.Personal_Details.user_id}}" class="btn"> Contact </a>
                     <ul class=" social-media ">

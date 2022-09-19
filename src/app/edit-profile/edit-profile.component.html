@@ -1,46 +1,54 @@
 <div class="container">
     <div class="row gutters">
-        <form class="card-body" #form="ngForm" (submit)="submitForm(form.value)">
-                
-        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-            <div class="card h-100">
-                <div class="card-body">
-                    <div class="account-settings">
-                        <div class="user-profile">
-                            <div class="user-avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
+        <form class="card-body" #form="ngForm" >
+            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                <div class="card h-100">
+                    <div class="card-body" ngModelGroup="Personal_Details">
+                        <div class="account-settings">
+                            <div class="user-profile">
+                                <div class="user-avatar">
+                                    <img src="{{current_user.Personal_Details.first_name}}" alt="profile_pic">
+                                    <input type="file" id="profile_pic" name="profile_pic" accept=".jpg, .jpeg, .png" />
+                                    <button class="form-control btn btn-primary" (click)="upload()">Submit</button>
+                                </div>
+                                <h5 class="user-name">{{current_user.Personal_Details.fullname}}</h5>
+                                <h6 class="user-email">{{current_user.Personal_Details.email}}</h6>
                             </div>
-                            <h5 class="user-name">{{current_user.Personal_Details.fullname}}</h5>
-                            <h6 class="user-email">{{current_user.Personal_Details.email}}</h6>
-                        </div>
-                        <div class="about">
-                            <h5>About</h5>
-                            <input type="text" name="About" class="form-control" 
-                                    placeholder="About you" ngModel="{{current_user.About}}">
-                            
+                            <div class="about">
+                                <h5>About</h5>
+                                <textarea type="text" name="about" class="form-control" rows="3" placeholder="About you"
+                                    ngModel="{{current_user.Personal_Details.about}}"></textarea>
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
-            <div class="card h-100">
+            <div class="offset-3 col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                <div class="card h-100">
                     <div class="row gutters" ngModelGroup="Personal_Details">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <h6 class="mb-2 text-primary">Personal Details</h6>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
-                                <label for="fullName">Full Name</label>
-                                <input type="text" name="fullname" class="form-control" id="fullName"
-                                    placeholder="Enter full name" ngModel="{{current_user.Personal_Details.fullname}}">
+                                <label for="fullName">First Name</label>
+                                <input type="text" name="first_name" class="form-control" id="first_name"
+                                    placeholder="Enter first name" ngModel="{{current_user.Personal_Details.first_name}}">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label for="fullName">Last Name</label>
+                                <input type="text" name="last_name" class="form-control" id="last_name"
+                                    placeholder="Enter Last name" ngModel="{{current_user.Personal_Details.last_name}}">
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="eMail">Email</label>
                                 <input type="email" class="form-control" name="email" placeholder="Enter email ID"
-                                    ngModel="{{current_user.Personal_Details.eMail}}">
+                                    ngModel="{{current_user.Personal_Details.email}}">
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -74,8 +82,7 @@
                                 <div class="form-group">
                                     <label for="fullName">School/College Name</label>
                                     <input type="text" class="form-control" name="Organisation_name"
-                                        placeholder="Enter School/College Name"
-                                        ngModel="{{acd.Organisation_name}}">
+                                        placeholder="Enter School/College Name" ngModel="{{acd.Organisation_name}}">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -103,13 +110,14 @@
                                 <div class="form-group">
                                     <label for="phone">Academic Description</label>
                                     <input type="text" class="form-control description" name="Academic_Description"
-                                        placeholder="Describe about your activities" ngModel="{{acd.Organisation_name}}">
+                                        placeholder="Describe about your activities"
+                                        ngModel="{{acd.Organisation_name}}">
                                 </div>
                             </div>
                         </div>
                     </div>
-                 <button (click)="add_Data('Academic_details')">add</button>
-                     <div class="row gutters">
+                    <button class="btn btn-primary" (click)="add_Data('Academic_details')">add</button>
+                    <div class="row gutters">
 
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <h6 class="mb-2 text-primary">Work experience</h6>
@@ -159,13 +167,13 @@
                             </div>
                         </div>
                     </div>
-                    <button (click)="add_Data('Work_experience')">add</button>
+                    <button (click)="add_Data('Work_experience')" class="btn btn-primary">add</button>
                     <div class="row gutters">
 
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <h6 class="mb-2 text-primary">Social media</h6>
                         </div>
-                    </div> 
+                    </div>
                     <div *ngFor="let sm of current_user.Social_media;let i=index;">
 
 
@@ -189,15 +197,15 @@
 
                         </div>
                     </div>
-                    <button (click)="add_Data('Social_media')">add</button>
+                    <button (click)="add_Data('Social_media')" class="btn btn-primary">add</button>
 
                     <div class="row gutters">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="text-right">
-                                <button type="submit" id="submit" name="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" id="submit" (click)="submitForm(form.value)" name="submit" class="btn btn-primary">Update</button>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </form>

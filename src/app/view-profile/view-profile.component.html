@@ -17,7 +17,8 @@
                   height="200" /></div>
             </div>
             <div class="col-lg-8 col-md-7 text-center text-md-start">
-              <h2 class="h1 mt-2" data-aos="fade-left" data-aos-delay="0">{{user.Personal_Details.fullname}}</h2>
+              <h2 class="h1 mt-2" data-aos="fade-left" data-aos-delay="0">{{user.Personal_Details.first_name +' ' +
+                user.Personal_Details.last_name}}</h2>
               <p data-aos="fade-left" data-aos-delay="100">Graphic Designer & Web Developer</p>
               <div class="site-nav">
                 <nav role="navigation" class="ulnav">
@@ -58,7 +59,7 @@
                   <div class="pb-1">Email</div>
                 </div>
                 <div class="col-sm-8">
-                  <div class="pb-1 text-secondary">{{user.Personal_Details.email}}</div>
+                  <div class="pb-1 text-secondary">{{user.Personal_Details.eMail}}</div>
                 </div>
                 <div class="col-sm-4">
                   <div class="pb-1">Phone</div>

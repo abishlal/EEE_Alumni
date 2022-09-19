@@ -5,9 +5,12 @@ import { CurrentuseService } from '../currentuse.service';
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
-  styleUrls: ['./edit-profile.component.css'],
+  styleUrls: ['./edit-profile.component.scss'],
 })
 export class EditProfileComponent implements OnInit {
+  pending:boolean=false;
+  success:boolean=false;
+  failure:boolean=false;
   constructor(private cur_user: CurrentuseService) {
     this.getuser();
   }
@@ -17,10 +20,38 @@ export class EditProfileComponent implements OnInit {
   submitForm(val: any) {
     // console.log(val);
     const db = getDatabase();
-
+    this.pending=true;
     set(ref(db, 'users/' + this.cur_user.user.uid), {
       data: this.convertSubmission(val),
+    }).then((v)=>{
+
+        console.log("success");
+        this.success=true;
+        this.pending=false;
+        setTimeout(()=>{
+          this.resetclass();
+        },1000);
+    
+    }).catch((v)=>{
+      console.log("failure"+v);
+      this.failure=true;
+      this.pending=false;
+      setTimeout(this.resetclass,1000);
     });
+  }
+  resetclass(){
+    this.success=false;
+    this.pending=false;
+    this.failure=false;
+    console.log("reset");
+    
+  }
+  getupdateclass(){
+
+    if(this.pending)return 'loading-btn loading-btn--pending' 
+    if(this.success) return 'loading-btn loading-btn--success'
+    if(this.failure) return 'loading-btn loading-btn--fail'
+    return 'loading-btn'
   }
   convertSubmission(val: any): any {
     const vals: string[] = [
@@ -95,7 +126,26 @@ export class EditProfileComponent implements OnInit {
       this.current_user[type].push(this.current_user[type][0]);
     else this.current_user[type] = [this.tempval[type][0]];
   }
+  remove_Data(type:string,pos:Number){
+    if (type in this.current_user)
+    console.log(pos);
+    
+      this.current_user[type].splice(pos,1);
+      
+  }
+  userimgpath:any;
+uploadimg(event:any){
+  if (event.target.files && event.target.files[0]) {
+    var reader = new FileReader();
 
+    reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+    reader.onload = (event) => { // called once readAsDataURL is completed
+      this.userimgpath = event.target?.result;
+    }
+  }
+  
+}
   upload() {
     console.log('upload');
     const db = getDatabase();

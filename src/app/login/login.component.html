@@ -12,6 +12,10 @@
                         <label class="form-label" for="form1Example13">Email address</label>
                         <input type="email" id="form1Example13" class="form-control form-control-lg"
                             formControlName="email" />
+                        <div class="alert alert-danger mt-2 "
+                            *ngIf="login.controls['email'].invalid && login.controls['email'].touched">
+                            Valid Email is required
+                        </div>
 
                     </div>
 
@@ -20,11 +24,15 @@
                         <label class="form-label" for="form1Example23">Password</label>
                         <input type="password" id="form1Example23" class="form-control form-control-lg"
                             formControlName="pass" />
+                        <div class="alert alert-danger mt-2 "
+                            *ngIf="login.controls['pass'].invalid && login.controls['pass'].touched">
+                            Password should be 8 characters
+                        </div>
 
                     </div>
 
                     <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary btn-lg btn-block mb-4">Sign in</button>
+                    <button type="submit" [disabled]="login.invalid" class="btn btn-primary btn-lg btn-block mb-4">Sign in</button>
                     <div class="alert alert-danger" *ngIf="error">
                         <h5>{{error}}</h5>
                     </div>

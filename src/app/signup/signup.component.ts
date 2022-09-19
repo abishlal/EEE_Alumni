@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
   }
 
   error: any;
-  message: string = '';
+  sigining:boolean = false;
   auth: any = getAuth();
 
   ngOnInit(): void {}
@@ -53,6 +53,7 @@ export class SignupComponent implements OnInit {
   };
 
   onsubmit() {
+    this.sigining = true;
     let fname = this.Signup.value.fname;
     let lname = this.Signup.value.lname;
     let email = this.Signup.value.email;
@@ -94,16 +95,16 @@ export class SignupComponent implements OnInit {
           .then(() => {
             sendEmailVerification(this.auth.currentUser).then(() => {
               this.route.navigate(['/verification-email']);
-              this.message = 'Verify the Email';
               console.log('signed up');
-            });
+            }).then(()=>{
+              this.sigining = false;
+            })
           })
           .catch((err) => {
             console.log(err);
           });
       })
       .catch((error) => {
-        this.message = '';
         this.error = error;
       });
   }

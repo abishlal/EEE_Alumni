@@ -26,13 +26,18 @@
                                     <input type="text" id="form3Example1" formControlName="fname"
                                         class="form-control" />
                                 </div>
+                                <div class="alert alert-danger mt-2 " *ngIf="Signup.controls['fname'].invalid && Signup.controls['fname'].touched ">
+                                    First name is required
+                                </div>
                             </div>
                             <div class="col-md-6 mb-4">
                                 <div class="form-outline">
                                     <label class="form-label" for="form3Example2">Last name</label>
                                     <input type="text" id="form3Example2" class="form-control"
                                         formControlName="lname" />
-
+                                </div>
+                                <div class="alert alert-danger mt-2 " *ngIf="Signup.controls['lname'].invalid && Signup.controls['lname'].touched ">
+                                    Last name is required
                                 </div>
                             </div>
                         </div>
@@ -44,11 +49,15 @@
                                     <label class="form-label" for="batch">Batch</label>
                                     <div class="form-group flexclass">
                                         <select class="form-control" formControlName="batch_year">
-                                            <option *ngFor="let batch of batch" [ngValue]="batch.end_year">{{batch.start_year}} To {{batch.end_year}}</option>
+                                            <option *ngFor="let batch of batch" [ngValue]="batch.end_year">
+                                                {{batch.start_year}} To {{batch.end_year}}</option>
                                         </select>
                                     </div>
+                                    <div class="alert alert-danger mt-2 " *ngIf="Signup.controls['batch_year'].invalid && Signup.controls['batch_year'].touched ">
+                                        Please select your batch
+                                    </div>
                                 </div>
-    
+
                             </div>
                         </div>
 
@@ -56,28 +65,33 @@
                         <div class="form-outline mb-4">
                             <label class="form-label" for="form3Example3">Email address</label>
                             <input type="email" class="form-control" formControlName="email" />
-
+                            <div class="alert alert-danger mt-2 " *ngIf="Signup.controls['email'].invalid && Signup.controls['email'].touched">
+                                Valid Email is required
+                            </div>
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="form3Example4">Password</label>
                             <input type="password" class="form-control" formControlName="pass" />
-
+                            <div class="alert alert-danger mt-2 " *ngIf="Signup.controls['pass'].invalid && Signup.controls['pass'].touched">
+                                Password should be 8 characters
+                            </div>
                         </div>
 
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary btn-block mb-4">
+                        <button type="submit" [disabled]="!Signup.valid" class="btn btn-primary btn-block mb-4">
                             Sign up
                         </button>
+                        <div class="linear-activity" *ngIf="sigining && !error">
+                            <div class="indeterminate"></div>
+                        </div>
                         <p class="mb-5 pb-lg-2" style="color: #393f81;">Already have an account? <a routerLink="/login"
                                 style="color: #393f81;">Login</a>
                         </p>
 
                     </form>
-                    <div class="alert alert-success" *ngIf="message">
-                        <h5>{{message}}</h5>
-                    </div>
+                    
                     <div class="alert alert-danger" *ngIf="error">
                         <h5>{{error.message}}</h5>
                     </div>

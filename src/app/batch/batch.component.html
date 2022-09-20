@@ -1,10 +1,27 @@
 <div class="maincontainer">
 <div class="leftcontainer">
 
+<div class="cards row" >
+    <div class="container" >
+        <div  >
+        <div class="card border-primary mb-4">
+            
+            <div class="card-header">
+                <h3 class="card-title">Elite Alumnies</h3>
+            </div>
+            <div class="card-body text-primary" >
+                <a routerLink="/profile/elite" class="btn btn-primary">View all</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
     <div class="cards row" *ngFor="let year of batch;let i=index;">
         <div class="container" >
             <div  >
             <div class="card border-primary mb-4">
+                
                 <div class="card-header">
                     <h3 class="card-title">Batch {{i+1}}</h3>
                 </div>

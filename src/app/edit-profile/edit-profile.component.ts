@@ -14,11 +14,13 @@ export class EditProfileComponent implements OnInit {
   success:boolean=false;
   failure:boolean=false;
   userid:string|undefined;
+  adminlogin:boolean=true;
   constructor(private cur_user: CurrentuseService,private route: ActivatedRoute) {
     const db = getDatabase();
     const id = this.route.snapshot.paramMap.get('id');
     console.log(id);
      this.userid=id=="fromuser"?this.cur_user.user.uid:id;
+     if(id!="fromuser")this.adminlogin=true;
     const starCountRef = ref(db, 'users/' + this.userid + '/data');
     
     onValue(starCountRef, (snapshot) => {
@@ -103,6 +105,7 @@ export class EditProfileComponent implements OnInit {
         }
       }
     }
+    tempobj.Personal_Details.user_id=this.userid;
     // console.log(tempobj);
 
     return tempobj;

@@ -13,20 +13,51 @@
 
         <form class="card-body" #form="ngForm" (submit)="submitForm(form.value,'user')">
             <div class="form-group">
-                <label for="eMail">Email</label>
-                <input type="email" class="form-control" name="eMail" placeholder="Enter email ID" ngModel>
+                <label for="email">Email</label>
+                <input type="email" class="form-control" name="email" placeholder="Enter email ID" ngModel>
             </div>
 
             <div class="form-group">
-                <label for="fullName">Password</label>
-                <input type="text" name="fullname" class="form-control" id="fullName" placeholder="Enter Password"
+                <label for="password">Password</label>
+                <input type="text" name="password" class="form-control" id="password" placeholder="Enter Password"
                     ngModel>
+            </div>
+            <div class="form-group">
+                <h5>Batch</h5>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+
+                    <select class="form-control" name="batch"  ngModel>
+                        <option *ngFor="let batch of batches;" value={{batch}}>{{batch}}</option>
+                    </select>
+                </div>
+               
             </div>
             <button type="submit" id="submit" name="submit" class="btn btn-primary">Create User</button>
         </form>
 
     </div>
     <div *ngIf="!showcard && !userform">
+        <div class="leftcontainer">
+
+            <div class="cards row" *ngFor="let year of displaybatches;let i=index;">
+                <div class="container" >
+                    <div  >
+                    <div class="card border-primary mb-4">
+                        <div class="card-header">
+                            <h3 class="card-title">Batch {{i+1}}</h3>
+                        </div>
+                        <div class="card-body text-primary" >
+                            <p class="card-text">{{year.start_year}} to {{year.end_year}}</p>
+                            <button class="btn btn-primary">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        
         <form class="card-body" (ngSubmit)="onsubmit()">
             <div class="form-group">
                 <label for="eMail">From</label>
@@ -37,7 +68,7 @@
                 <label for="fullName">To</label>
                 <input type="text" class="form-control" [formControl]="end_year" placeholder="To Year">
             </div>
-            <button type="submit" id="submit" name="submit" class="btn btn-primary">Create group</button>
+            <button type="submit" id="submit" name="submit" class="btn btn-primary">Create Batch</button>
         </form>
 
     </div>

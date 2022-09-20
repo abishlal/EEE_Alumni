@@ -143,22 +143,18 @@ export class EditProfileComponent implements OnInit {
   };
   current_user: any = this.tempval;
   getuser() {
-<<<<<<< HEAD
-    
-=======
     const db = getDatabase();
-    const starCountRef = ref(db, 'users/' + this.cur_user.user.uid + '/data');
+    const starCountRef = ref(db, 'users/' + this.userid + '/data');
     onValue(starCountRef, (snapshot) => {
       console.log(snapshot.val());
       this.current_user = snapshot.val();
       console.log(this.current_user);
     });
 
-    const pic_ref = ref(db, 'photos/'+this.cur_user.user.uid + '/url')
+    const pic_ref = ref(db, 'photos/'+this.userid + '/url')
     onValue(pic_ref, (url)=>{
       this.userimgpath = url.val()
     })
->>>>>>> 952537a37d20b2b40bfe28b78d2a645899efb4c8
   }
   add_Data(type: string) {
     console.log(this.current_user);

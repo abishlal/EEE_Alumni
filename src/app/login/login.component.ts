@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth,sendEmailVerification, signInWithEmailAndPassword } from 'firebase/auth';
 import { Router } from '@angular/router';
 import { CurrentuseService } from '../currentuse.service';
 
@@ -32,8 +32,12 @@ export class LoginComponent implements OnInit {
       .then((data) => {
         if (data.user.emailVerified) {
           this.message = 'sucessfull';
-          this.route.navigate(['/edit-profile']);
+          this.route.navigate(['/edit-profile/fromuser']);
         } else {
+          sendEmailVerification(this.auth.currentUser).then(() => {
+            console.log("verification sent");
+            
+          })
           this.verify_error = 'Kindly verify your Email id to login';
         }
       })

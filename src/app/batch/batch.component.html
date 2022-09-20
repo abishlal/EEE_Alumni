@@ -1,12 +1,12 @@
 <div class="maincontainer">
 <div class="leftcontainer">
 
-    <div class="cards row" *ngFor="let year of batch">
+    <div class="cards row" *ngFor="let year of batch;let i=index;">
         <div class="container" >
             <div  >
             <div class="card border-primary mb-4">
                 <div class="card-header">
-                    <h3 class="card-title">Batch</h3>
+                    <h3 class="card-title">Batch {{i+1}}</h3>
                 </div>
                 <div class="card-body text-primary" >
                     <p class="card-text">{{year.start_year}} to {{year.end_year}}</p>

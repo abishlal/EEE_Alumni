@@ -23,9 +23,19 @@ export class CardComponent implements OnInit {
       for (const iterator in val) {
         this.profile.push(val[iterator]);
       }
-    });
-
+      console.log(this.profile);
+      
+    if(this.year=="elite"){
+      for (const user of this.profile) {
+        if(user?.data?.Personal_Details?.type=='Elite'){
+          this.user_data.push(user.data);
+        }
+      }
+    }
+    else
     this.get_user_id();
+    });
+    
   }
 
   user_data:any = [];

@@ -146,3 +146,54 @@
     }
 
 }
+
+
+/* Ribbon 6 */
+.cover-ribbon {
+  height: 115px;
+  width: 115px;
+  position: absolute;
+  right: -8px;
+  top: -8px;
+  overflow: hidden;
+  z-index: 10;
+}
+.cover-ribbon .cover-ribbon-inside {
+  background: #EA4335;
+  color: #FFF;
+  transform: rotate(45deg);
+  position: absolute;
+  right: -31px;
+    top: 7px;
+    padding: 8px;
+  min-width: 127px;
+  text-align: center;
+}
+.cover-ribbon .cover-ribbon-inside:before {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 10px solid #992C23;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  top: 35px;
+  transform: rotate(-45deg);
+}
+.cover-ribbon .cover-ribbon-inside:after {
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-left: 10px solid #992C23;
+  border-bottom: 7px solid transparent;
+  position: absolute;
+  left: 95%;
+  right: 0;
+  top: 34px;
+  bottom: 0;
+  content: "";
+  transform: rotate(-45deg);
+}

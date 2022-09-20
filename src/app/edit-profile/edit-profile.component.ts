@@ -9,11 +9,26 @@ import { CurrentuseService } from '../currentuse.service';
   styleUrls: ['./edit-profile.component.scss'],
 })
 export class EditProfileComponent implements OnInit {
-  pending: boolean = false;
-  success: boolean = false;
-  failure: boolean = false;
-  constructor(private cur_user: CurrentuseService) {
-    this.getuser();
+  pending:boolean=false;
+  success:boolean=false;
+  failure:boolean=false;
+  userid:string|undefined;
+  adminlogin:boolean=true;
+  constructor(private cur_user: CurrentuseService,private route: ActivatedRoute) {
+    const db = getDatabase();
+    const id = this.route.snapshot.paramMap.get('id');
+    console.log(id);
+     this.userid=id=="fromuser"?this.cur_user.user.uid:id;
+     if(id!="fromuser")this.adminlogin=true;
+    const starCountRef = ref(db, 'users/' + this.userid + '/data');
+    
+    onValue(starCountRef, (snapshot) => {
+
+      console.log(snapshot.val());
+      this.current_user = snapshot.val();
+      console.log(this.current_user);
+    });
+
   }
 
   userimgpath: any;
@@ -91,6 +106,7 @@ export class EditProfileComponent implements OnInit {
         }
       }
     }
+    tempobj.Personal_Details.user_id=this.userid;
     // console.log(tempobj);
 
     return tempobj;

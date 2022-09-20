@@ -2,8 +2,13 @@
     <div class="container">
         <div class="card-wrapper">
             <div *ngFor="let user of user_data">
+              
                 <div class="card">
-                    <h1 *ngIf="user.elite">Elite alumini</h1>
+                    <!-- <h1 *ngIf="user.elite">Elite alumini</h1> -->
+                    <div *ngIf="user.Personal_Details.type=='Elite'" class="cover-ribbon">
+
+                        <div class="cover-ribbon-inside">Elite</div>
+                    </div>
                     <img src="../../assets/img/abi.jpg" alt="card background" class="card-img">
                     <img src="../../assets/img/abish (2).jpg" alt="profile image" class="profile-img ">
                     <h1>{{user.Personal_Details.first_name + ' ' + user.Personal_Details.last_name}}</h1>

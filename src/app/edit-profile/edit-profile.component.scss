@@ -64,7 +64,7 @@ body {
 }
 .flexclass{
     display: flex;
-    width: 200%;
+    width: 210%;
     gap: 2em;
 }
 @media only screen and (max-width: 600px) {
@@ -76,6 +76,10 @@ body {
 .mybutton{
     width: 100px;
     height: 50px;
+    margin:20px 0px;
+}
+.btnmargin{
+  margin:0px;
 }
 form{
     display: flex;

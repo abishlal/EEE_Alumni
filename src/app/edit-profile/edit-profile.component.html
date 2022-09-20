@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row gutters">
         <form class="card-body" #form="ngForm" >
-            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+            <div>
                 <div class="card h-100">
                     <div class="card-body" ngModelGroup="Personal_Details">
                         <div class="account-settings">
@@ -17,8 +17,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button class="btn btn-primary mybutton"  (click)="upload()">Submit</button>
-                                <h5 class="user-name">{{current_user.Personal_Details.fullname}}</h5>
+                                
+                                <h5 class="user-name">{{current_user.Personal_Details.first_name}} {{current_user.Personal_Details.last_name}}</h5>
                                 <h6 class="user-email">{{current_user.Personal_Details.email}}</h6>
                             </div>
                             <div class="about">
@@ -207,10 +207,10 @@
                                     </select>
                                     <input type="text" class="form-control" name="link"
                                         placeholder="Enter Social media link" ngModel="{{sm.link}}">
-
+                                        <button class="btn btn-secondary mybutton btnmargin" (click)="remove_Data('Social_media',i)">remove</button>
                                 </div>
+                               
                             </div>
-
                         </div>
                     </div>
                     <button (click)="add_Data('Social_media')" class="btn btn-primary mybutton">add</button>

@@ -16,11 +16,14 @@ export class EditProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-  
+  userimgurl:any="https://picsum.photos/id/100/500/300";
   submitForm(val: any) {
     // console.log(val);
     const db = getDatabase();
     this.pending=true;
+    set(ref(db, 'photos/' + this.cur_user.user.uid), {
+      url: this.userimgurl
+    });
     set(ref(db, 'users/' + this.cur_user.user.uid), {
       data: this.convertSubmission(val),
     }).then((v)=>{
@@ -60,7 +63,7 @@ export class EditProfileComponent implements OnInit {
       'Work_experience',
     ];
     const tempobj: any = {
-      Personal_Details: val.Personal_Details,
+      Personal_Details: {...val.Personal_Details,"imgurl":this.userimgurl},
       Academic_details: [],
       Social_media: [],
       Work_experience: [],

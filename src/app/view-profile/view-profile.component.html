@@ -1,4 +1,11 @@
-<h1 *ngIf="!userexists">Sorry no user find</h1>
+
+<div *ngIf="!userexists" class="flexcenter">
+  <svg *ngIf="initialpageload" class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+    <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+  </svg>
+  <h1 *ngIf="!userexists && !initialpageload">Sorry no user find</h1>
+</div>
+
 <div *ngIf="userexists">
   <header class="d-print-none">
     <div class="container text-center text-lg-left">
@@ -13,7 +20,7 @@
         <div class="cover-bg p-3 p-lg-4 text-white">
           <div class="row">
             <div class="col-lg-4 col-md-5">
-              <div class="avatar hover-effect bg-white shadow-sm p-1"><img src="images/avatar.jpg" width="200"
+              <div class="avatar hover-effect bg-white shadow-sm p-1"><img src={{this.user.Personal_Details.imgurl}} width="200"
                   height="200" /></div>
             </div>
             <div class="col-lg-8 col-md-7 text-center text-md-start">
@@ -24,19 +31,19 @@
                 <nav role="navigation" class="ulnav">
                   <ul *ngFor="let sm of user.Social_media">
                     <li *ngIf="sm.site=='Twitter'" class="nav-item"><a class="nav-link"
-                        href="https://twitter.com/templateflip" title="Twitter"><i class="fab fa-twitter"></i><span
+                        href={{sm.link}} title="Twitter"><i class="fab fa-twitter"></i><span
                           class="menu-title sr-only">Twitter</span></a>
                     </li>
                     <li *ngIf="sm.site=='Facebook'" class="nav-item"><a class="nav-link"
-                        href="https://www.facebook.com/templateflip" title="Facebook"><i
+                        href={{sm.link}} title="Facebook"><i
                           class="fab fa-facebook"></i><span class="menu-title sr-only">Facebook</span></a>
                     </li>
                     <li *ngIf="sm.site=='Instagram'" class="nav-item"><a class="nav-link"
-                        href="https://www.instagram.com/templateflip" title="Instagram"><i
+                        href={{sm.link}} title="Instagram"><i
                           class="fab fa-instagram"></i><span class="menu-title sr-only">Instagram</span></a>
                     </li>
                     <li *ngIf="sm.site=='Github'" class="nav-item"><a class="nav-link"
-                        href="https://github.com/templateflip" title="Github"><i class="fab fa-github"></i><span
+                        href={{sm.link}} title="Github"><i class="fab fa-github"></i><span
                           class="menu-title sr-only">Github</span></a>
                     </li>
                   </ul>
@@ -50,7 +57,7 @@
           <div class="row">
             <div class="col-md-6">
               <h2 class="h3 mb-3">About Me</h2>
-              <p>{{user.About}}</p>
+              <p>{{user.Personal_Details.about}}</p>
             </div>
             <div class="col-md-5 offset-md-1">
               <div class="row mt-2">
@@ -59,7 +66,7 @@
                   <div class="pb-1">Email</div>
                 </div>
                 <div class="col-sm-8">
-                  <div class="pb-1 text-secondary">{{user.Personal_Details.eMail}}</div>
+                  <div class="pb-1 text-secondary">{{user.Personal_Details.email}}</div>
                 </div>
                 <div class="col-sm-4">
                   <div class="pb-1">Phone</div>
@@ -70,7 +77,7 @@
 
               </div>
             </div>
-          </div> -->
+          </div> 
           <hr class="d-print-none" />
           <div class="work-experience-section px-3 px-lg-4">
             <h2 class="h3 mb-4">Work Experience</h2>
@@ -88,6 +95,7 @@
             </div>
             <hr class="d-print-none" />
             <div class="page-break"></div>
+          </div>
             <div class="education-section px-3 px-lg-4 pb-4">
               <h2 class="h3 mb-4">Education</h2>
               <div class="timeline" *ngFor="let work of user.Academic_details;">
@@ -104,7 +112,7 @@
             </div>
             <hr class="d-print-none" />
 
-          </div>
+          
         </div>
       </div>
     </div>

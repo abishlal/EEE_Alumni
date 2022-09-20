@@ -34,7 +34,7 @@ export class AdminComponent implements OnInit {
 
   submitForm(val:any,type:string){
     // e.preventdefault();
-    if(type=='user')this.router.navigateByUrl('/edit-profile');
+    if(type=='user')this.router.navigateByUrl('/edit-profile/fromadmin');
     console.log(val);
   }
 }

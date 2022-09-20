@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <a routerLink="" alt="Home">Home</a>
-            <a routerLink="/edit-profile" alt="Edit Profile" *ngIf="userauth">Edit Profile</a>
+            <a routerLink="/edit-profile/fromuser" alt="Edit Profile" *ngIf="userauth">Edit Profile</a>
             <a routerLink="/signup" alt="Sign Up" *ngIf="!userauth" >Sign Up</a>
             <a routerLink="/login" alt="Login" *ngIf="!userauth" >Login</a>
             <a alt="Logout" *ngIf="userauth" (click)="logout()">Logout</a>

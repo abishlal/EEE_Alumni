@@ -18,7 +18,7 @@ const routes: Routes = [
   {path:"login", component:LoginComponent},
   {path:"signup", component:SignupComponent},
   {path:"profile/view/:id", component:ViewProfileComponent},
-  {path:"edit-profile", component:EditProfileComponent},
+  {path:"edit-profile/:id", component:EditProfileComponent},
   {path:'verification-email', component:EmailComponent},
   {path:'verification-password', component:PasswordComponent},
   {path:'reset-password', component:PasswordResetComponent},

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { getDatabase, ref, set, onValue, update } from 'firebase/database';
 import { CurrentuseService } from '../currentuse.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit-profile',
@@ -11,8 +12,21 @@ export class EditProfileComponent implements OnInit {
   pending:boolean=false;
   success:boolean=false;
   failure:boolean=false;
-  constructor(private cur_user: CurrentuseService) {
-    this.getuser();
+  userid:string|undefined;
+  constructor(private cur_user: CurrentuseService,private route: ActivatedRoute) {
+    const db = getDatabase();
+    const id = this.route.snapshot.paramMap.get('id');
+    console.log(id);
+     this.userid=id=="fromuser"?this.cur_user.user.uid:id;
+    const starCountRef = ref(db, 'users/' + this.userid + '/data');
+    
+    onValue(starCountRef, (snapshot) => {
+
+      console.log(snapshot.val());
+      this.current_user = snapshot.val();
+      console.log(this.current_user);
+    });
+
   }
 
   ngOnInit(): void {}
@@ -21,10 +35,10 @@ export class EditProfileComponent implements OnInit {
     // console.log(val);
     const db = getDatabase();
     this.pending=true;
-    set(ref(db, 'photos/' + this.cur_user.user.uid), {
+    set(ref(db, 'photos/' + this.userid), {
       url: this.userimgurl
     });
-    set(ref(db, 'users/' + this.cur_user.user.uid), {
+    set(ref(db, 'users/' + this.userid), {
       data: this.convertSubmission(val),
     }).then((v)=>{
 
@@ -115,13 +129,7 @@ export class EditProfileComponent implements OnInit {
   };
   current_user: any = this.tempval;
   getuser() {
-    const db = getDatabase();
-    const starCountRef = ref(db, 'users/' + this.cur_user.user.uid + '/data');
-    onValue(starCountRef, (snapshot) => {
-      console.log(snapshot.val());
-      this.current_user = snapshot.val();
-      console.log(this.current_user);
-    });
+    
   }
   add_Data(type: string) {
     console.log(this.current_user);

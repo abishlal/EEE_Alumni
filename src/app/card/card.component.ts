@@ -11,7 +11,8 @@ export class CardComponent implements OnInit {
   year: any;
 
   profile: any = [];
-
+  defaultprofile:string='../../assets/img/abish (2).jpg';
+  
   constructor(public activateRoute: ActivatedRoute) {
     this.year = this.activateRoute.snapshot.paramMap.get('batch');
 

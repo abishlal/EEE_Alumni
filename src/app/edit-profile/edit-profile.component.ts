@@ -15,66 +15,97 @@ export class EditProfileComponent implements OnInit {
   failure:boolean=false;
   userid:string|undefined;
   adminlogin:boolean=true;
+  online:boolean=true;
   constructor(private cur_user: CurrentuseService,private route: ActivatedRoute) {
     const db = getDatabase();
-    const id = this.route.snapshot.paramMap.get('id');
-    console.log(id);
-     this.userid=id=="fromuser"?this.cur_user.user.uid:id;
-     if(id!="fromuser")this.adminlogin=true;
-    const starCountRef = ref(db, 'users/' + this.userid + '/data');
+    const connectedRef = ref(db, ".info/connected");
+    onValue(connectedRef, (snap) => {
+      if (snap.val() === true) {
+        console.log("connected");
+        this.online=true;
+        const id = this.route.snapshot.paramMap.get('id');
+        console.log(id);
+         this.userid=id=="fromuser"?this.cur_user.user.uid:id;
+         if(id!="fromuser")this.adminlogin=true;
+        const starCountRef = ref(db, 'users/' + this.userid + '/data');
+        
+        onValue(starCountRef, (snapshot) => {
     
-    onValue(starCountRef, (snapshot) => {
-
-      console.log(snapshot.val());
-      this.current_user = snapshot.val();
-      console.log(this.current_user);
+          console.log(snapshot.val());
+          this.current_user = snapshot.val();
+          this.userimgpath=this.current_user.Personal_Details.imgurl;
+          console.log(this.current_user);
+        });
+      } else {
+        console.log("not connected");
+        this.online=false;
+      }
     });
+    
+   
 
   }
 
   userimgpath: any;
   ngOnInit(): void {}
-  userimgurl: any = '';
-  submitForm(val: any) {
-    this.pending = true;
+  userimgurl: any = 'https://picsum.photos/id/100/500/300';
+  submitForm(form: any) {
+    const val=form.value;
     const db = getDatabase();
-    const storage = refr.getStorage();
-    const sto = refr.ref(
-      storage,
-      '/users_img/' + this.cur_user.user.uid + '/url'
-    );
-    refr.uploadBytes(sto, this.path).then((snapshot) => {
-      console.log(snapshot.ref.fullPath);
-      refr
-        .getDownloadURL(refr.ref(storage, snapshot.ref.fullPath))
-        .then((url) => {
-          this.userimgurl = url;
-          console.log(this.userimgurl);
-        })
-        .then(() => {
-          set(ref(db, 'photos/' + this.cur_user.user.uid), {
-            url: this.userimgurl,
-          }).then(() => {
-            set(ref(db, 'users/' + this.cur_user.user.uid), {
-              data: this.convertSubmission(val),
-            })
-              .then((v) => {
-                console.log('success');
-                this.success = true;
-                this.pending = false;
-                setTimeout(() => {
-                  this.resetclass();
-                }, 1000);
-              })
-              .catch((v) => {
-                console.log('failure' + v);
-                this.failure = true;
-                this.pending = false;
-                setTimeout(this.resetclass, 1000);
-              });
-          });
-        });
+    const connectedRef = ref(db, ".info/connected");
+    onValue(connectedRef, (snap) => {
+      if (snap.val() === true) {
+        console.log("connected");
+        if(form.valid)this.handledb(val,db);
+      } else {
+        console.log("not connected");
+        this.failure=true;
+      }
     });
+        
+  }
+  handledb(val:any,db:any){
+    console.log(val);
+    this.pending=true;
+
+    const storage = refr.getStorage();
+    const sto = refr.ref(storage, '/users_img/' + this.cur_user.user.uid + '/url');
+    // this.loading = true;
+    refr.uploadBytes(sto, this.path).then((snapshot) => {
+      // this.loading = false;
+      // this.sucess = true;
+      console.log(snapshot.ref.fullPath)
+      refr.getDownloadURL(refr.ref(storage, snapshot.ref.fullPath)).then((url)=>{
+        this.userimgurl = url
+        console.log(url);
+        
+
+    // console.log(val);
+
+    set(ref(db, 'photos/' + this.userid), {
+      url: this.userimgurl
+    });
+    set(ref(db, 'users/' + this.userid), {
+      data: this.convertSubmission(val),
+    })
+      .then((v) => {
+        console.log('success');
+        this.success = true;
+        this.pending = false;
+        setTimeout(() => {
+          this.resetclass();
+        }, 1000);
+      })
+      .catch((v) => {
+        console.log('failure' + v);
+        this.failure = true;
+        this.pending = false;
+        setTimeout(this.resetclass, 1000);
+      });
+      
+    })
+  })
+
   }
   resetclass() {
     this.success = false;
@@ -89,6 +120,8 @@ export class EditProfileComponent implements OnInit {
     return 'loading-btn';
   }
   convertSubmission(val: any): any {
+    console.log(val);
+    
     const vals: string[] = [
       'Academic_details',
       'Social_media',

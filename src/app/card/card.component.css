@@ -123,16 +123,6 @@
         transition: transform .5s;
     }
 
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-
-        top {
-            opacity: 1;
-        }
-    }
-
     .card:nth-child(odd) {
         animation: fadeIn .5s .5s backwards;
     }

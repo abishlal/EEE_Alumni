@@ -51,7 +51,7 @@ export class EditProfileComponent implements OnInit {
 
   userimgpath: any;
   ngOnInit(): void {}
-  userimgurl: any = 'https://picsum.photos/id/100/500/300';
+  userimgurl: any = 'https://firebasestorage.googleapis.com/v0/b/alumini-eee.appspot.com/o/users_img%2Fdummy_img%2Fuser.png?alt=media&token=153754fe-f528-4387-85cc-762e7c84af46';
   submitForm(form: any) {
     const val=form.value;
     const db = getDatabase();

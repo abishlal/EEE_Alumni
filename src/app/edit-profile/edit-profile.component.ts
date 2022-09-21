@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { getDatabase, ref, set, onValue, update } from 'firebase/database';
-import * as refr from "firebase/storage";
+import * as refr from 'firebase/storage';
 import { CurrentuseService } from '../currentuse.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -182,19 +182,20 @@ export class EditProfileComponent implements OnInit {
     ],
   };
   current_user: any = this.tempval;
+
   getuser() {
     const db = getDatabase();
-    const starCountRef = ref(db, 'users/' + this.userid + '/data');
+    const starCountRef = ref(db, 'users/' + this.cur_user.user.uid + '/data');
     onValue(starCountRef, (snapshot) => {
       console.log(snapshot.val());
       this.current_user = snapshot.val();
       console.log(this.current_user);
     });
 
-    const pic_ref = ref(db, 'photos/'+this.userid + '/url')
-    onValue(pic_ref, (url)=>{
-      this.userimgpath = url.val()
-    })
+    const pic_ref = ref(db, 'photos/' + this.cur_user.user.uid + '/url');
+    onValue(pic_ref, (url) => {
+      this.userimgpath = url.val();
+    });
   }
   add_Data(type: string) {
     console.log(this.current_user);
@@ -208,10 +209,10 @@ export class EditProfileComponent implements OnInit {
     this.current_user[type].splice(pos, 1);
   }
 
-  path:any;
+  path: any;
 
   uploadimg(event: any) {
-    this.path = event.target.files[0]
+    this.path = event.target.files[0];
 
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();

@@ -72,7 +72,7 @@ export class SignupComponent implements OnInit {
             set(ref(db, 'users/' + data.user.uid + '/data/Personal_Details/'), {
               user_id: data.user.uid,
               batch: batch,
-              eMail: email,
+              email: email,
               first_name: fname,
               last_name: lname,
               website: '',
@@ -80,7 +80,7 @@ export class SignupComponent implements OnInit {
             });
           })
           .then(() => {
-            set(ref(db, 'users/' + data.user.uid ), {
+            set(ref(db, 'photos/' + data.user.uid ), {
               photo_url: 'https://bootdey.com/img/Content/avatar/avatar7.png',
             });
           })

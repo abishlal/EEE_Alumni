@@ -22,7 +22,8 @@ const routes: Routes = [
   {path:'verification-email', component:EmailComponent},
   {path:'verification-password', component:PasswordComponent},
   {path:'reset-password', component:PasswordResetComponent},
-  {path:'admin', component:AdminComponent}
+  {path:'admin', component:AdminComponent},
+  {path:"**", redirectTo:'home', pathMatch:'full'}
 ];
 
 @NgModule({

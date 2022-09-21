@@ -1,5 +1,4 @@
 section{
-    background-color:#1488EA;
     height: 100%;
     padding-top: 5%;
     padding-bottom: 15%;
@@ -12,6 +11,8 @@ section{
     margin: 40px auto;
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
 }
 
 #upper-side {

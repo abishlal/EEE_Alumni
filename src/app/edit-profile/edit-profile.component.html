@@ -1,6 +1,12 @@
 <div class="container">
-    <div class="row gutters">
-        <form class="card-body" #form="ngForm" >
+    <div *ngIf="!online" class="flexcenter">
+        <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+          <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+        </svg>
+        <h6>Check Network connection if it takes long time to load</h6>
+      </div>
+    <div *ngIf="online" class="row gutters">
+        <form class="card-body" #form="ngForm" ngNativeValidate >
             <div>
                 <div class="card h-100">
                     <div class="card-body" ngModelGroup="Personal_Details">
@@ -41,7 +47,7 @@
                             <div class="form-group">
                                 <label for="fullName">First Name</label>
                                 <input type="text" name="first_name" class="form-control" id="first_name"
-                                    placeholder="Enter first name" ngModel="{{current_user.Personal_Details.first_name}}">
+                                    placeholder="Enter first name" ngModel="{{current_user.Personal_Details.first_name}}" required>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -99,28 +105,28 @@
                                 <div class="form-group">
                                     <label for="fullName">School/College Name</label>
                                     <input type="text" class="form-control" name="Organisation_name"
-                                        placeholder="Enter School/College Name" ngModel="{{acd.Organisation_name}}">
+                                        placeholder="Enter School/College Name" ngModel="{{acd.Organisation_name}}" required>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="eMail">Specialisation</label>
                                     <input type="text" class="form-control" name="Specialisation"
-                                        placeholder="Enter Specialisation" ngModel="{{acd.Organisation_name}}">
+                                        placeholder="Enter Specialisation" ngModel="{{acd.Specialisation}}" required>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="eMail">From</label>
-                                    <input type="text" class="form-control" name="From" placeholder="When did you start"
-                                        ngModel="{{acd.Organisation_name}}">
+                                    <input type="number" min="1900" max="2050" class="form-control" name="From" placeholder="When did you start"
+                                        ngModel="{{acd.From}}" required>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="phone">Till</label>
-                                    <input type="text" class="form-control" name="Till" placeholder="when did you end"
-                                        ngModel="{{acd.Organisation_name}}">
+                                    <input type="number" min="1900" max="2050" class="form-control" name="Till" placeholder="when did you end"
+                                        ngModel="{{acd.Till}}" required>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -128,7 +134,7 @@
                                     <label for="phone">Academic Description</label>
                                     <input type="text" class="form-control description" name="Academic_Description"
                                         placeholder="Describe about your activities"
-                                        ngModel="{{acd.Organisation_name}}">
+                                        ngModel="{{acd.Academic_Description}}">
                                 </div>
                             </div>
                             <div class="col d-flex justify-content-end align-items-end">
@@ -156,28 +162,28 @@
                                 <div class="form-group">
                                     <label for="fullName">Organisation</label>
                                     <input type="text" class="form-control" name="Organisation_name"
-                                        placeholder="Enter Organisation name" ngModel="{{we.Organisation_name}}">
+                                        placeholder="Enter Organisation name" ngModel="{{we.Organisation_name}}" required>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="eMail">Job role</label>
                                     <input type="text" class="form-control" name="Job_role" placeholder="Enter Job Role"
-                                        ngModel="{{we.Job_role}}">
+                                        ngModel="{{we.Job_role}}" required>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="eMail">From</label>
-                                    <input type="text" class="form-control" name="From" placeholder="When did you start"
-                                        ngModel="{{we.From}}">
+                                    <input type="number" min="1900" max="2050" class="form-control" name="From" placeholder="When did you start"
+                                        ngModel="{{we.From}}" required>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="phone">Till</label>
-                                    <input type="text" class="form-control" name="Till" placeholder="when did you end"
-                                        ngModel="{{we.Till}}">
+                                    <input type="number" min="1900" max="2050" class="form-control" name="Till" placeholder="when did you end"
+                                        ngModel="{{we.Till}}" required>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -189,7 +195,7 @@
                             </div>
                             <div class="col d-flex justify-content-end align-items-end">
 
-                                <button class="btn btn-secondary mybutton" (click)="remove_Data('Academic_details',i)">remove</button>
+                                <button class="btn btn-secondary mybutton" (click)="remove_Data('Work_experience',i)">remove</button>
                             </div>
                         </div>
                     </div>
@@ -209,14 +215,14 @@
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group flexclass">
 
-                                    <select class="form-control" name="site" ngModel="{{sm.site}}">
+                                    <select class="form-control" name="site" ngModel="{{sm.site}}" required>
                                         <option value="Github">Github</option>
                                         <option value="Twitter">Twitter</option>
                                         <option value="Facebook">Facebook</option>
                                         <option value="Instagram">Instagram</option>
                                     </select>
                                     <input type="text" class="form-control" name="link"
-                                        placeholder="Enter Social media link" ngModel="{{sm.link}}">
+                                        placeholder="Enter Social media link" ngModel="{{sm.link}}" required>
                                         <button class="btn btn-secondary mybutton btnmargin" (click)="remove_Data('Social_media',i)">remove</button>
                                 </div>
                                
@@ -229,7 +235,7 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="text-right">
                                 <span class="loading-btn-wrapper">
-                                    <button  [ngClass]="getupdateclass()" type="submit" id="submit" (click)="submitForm(form.value)" name="submit" >
+                                    <button  [ngClass]="getupdateclass()" type="submit" id="submit" (click)="submitForm(form)" name="submit" >
                                     <span class="loading-btn__text">
                                         Update  
                                       </span>

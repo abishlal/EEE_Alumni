@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 import {set,ref, Database, onValue,getDatabase} from 'firebase/database'
 import {getAuth,
-  createUserWithEmailAndPassword,
+  createUserWithEmailAndPassword,signInWithEmailAndPassword
 } from 'firebase/auth';
 
 @Component({
@@ -13,8 +13,7 @@ import {getAuth,
 })
 export class AdminComponent implements OnInit {
   auth: any = getAuth();
-defaultprofile:string='../../assets/img/abish (2).jpg';
-  showcard:boolean=true;
+showcard:boolean=true;
   userform:boolean=true;
   tempobj:any= {Personal_Details: {
     email: '',
@@ -64,6 +63,7 @@ displaybatches:any=[];
     if(type=='user'){
       const db = getDatabase();
     this.tempobj.Personal_Details.email=val.email;
+    
     createUserWithEmailAndPassword(this.auth, val.email, val.password)
       .then((data) => {
         set(ref(db, 'users/' + data.user.uid), {
@@ -78,7 +78,13 @@ displaybatches:any=[];
         }).then(()=>{
           console.log("user added to batch")
         })
+        
+        signInWithEmailAndPassword(this.auth,"vignesharivazhagan1409@gmail.com","mypassword")
+      .then((d) => {
+        console.log(d.user.uid,data.user.uid);
+        
         this.router.navigateByUrl('/edit-profile/'+data.user.uid);
+      })
 
       })
 

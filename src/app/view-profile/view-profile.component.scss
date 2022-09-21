@@ -193,3 +193,9 @@ $duration: 1.4s;
    transform:rotate(450deg);
  }
 }
+
+.editcontainer{
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+}

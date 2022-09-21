@@ -66,7 +66,8 @@ export class EditProfileComponent implements OnInit {
   }
   handledb(val:any,db:any){
     console.log(val);
-    
+    this.pending=true;
+
     const storage = refr.getStorage();
     const sto = refr.ref(storage, '/users_img/' + this.cur_user.user.uid + '/url');
     // this.loading = true;
@@ -76,12 +77,11 @@ export class EditProfileComponent implements OnInit {
       console.log(snapshot.ref.fullPath)
       refr.getDownloadURL(refr.ref(storage, snapshot.ref.fullPath)).then((url)=>{
         this.userimgurl = url
-      })
-    })
+        console.log(url);
+        
 
     // console.log(val);
 
-    this.pending=true;
     set(ref(db, 'photos/' + this.userid), {
       url: this.userimgurl
     });
@@ -102,6 +102,10 @@ export class EditProfileComponent implements OnInit {
         this.pending = false;
         setTimeout(this.resetclass, 1000);
       });
+      
+    })
+  })
+
   }
   resetclass() {
     this.success = false;

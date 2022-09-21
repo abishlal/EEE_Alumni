@@ -13,7 +13,7 @@ import {getAuth,
 })
 export class AdminComponent implements OnInit {
   auth: any = getAuth();
-
+defaultprofile:string='../../assets/img/abish (2).jpg';
   showcard:boolean=true;
   userform:boolean=true;
   tempobj:any= {Personal_Details: {

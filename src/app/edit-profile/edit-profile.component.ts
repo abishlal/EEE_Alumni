@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { getDatabase, ref, set, onValue, update } from 'firebase/database';
 import * as refr from 'firebase/storage';
 import { CurrentuseService } from '../currentuse.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit-profile',

@@ -10,6 +10,8 @@ import { SignupComponent } from './signup/signup.component';
 import { EmailComponent } from './verification/email/email.component';
 import { PasswordComponent } from './verification/password/password.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { AuthGuard } from './auth.guard';
+import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -18,11 +20,12 @@ const routes: Routes = [
   {path:"login", component:LoginComponent},
   {path:"signup", component:SignupComponent},
   {path:"profile/view/:id", component:ViewProfileComponent},
-  {path:"edit-profile/:id", component:EditProfileComponent},
+  {path:"edit-profile/:id", component:EditProfileComponent, canActivate:[AuthGuard]},
   {path:'verification-email', component:EmailComponent},
   {path:'verification-password', component:PasswordComponent},
   {path:'reset-password', component:PasswordResetComponent},
-  {path:'admin', component:AdminComponent}
+  {path:'admin', component:AdminComponent, canActivate:[AdminGuard]},
+  {path:"**", redirectTo:'home', pathMatch:'full'}
 ];
 
 @NgModule({

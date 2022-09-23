@@ -20,6 +20,7 @@ import { BatchComponent } from './batch/batch.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { AdminComponent } from './admin/admin.component';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAmuWyQ1u7XCkJNpSUl_c-m_MUHT4UKmQ8",
@@ -55,7 +56,8 @@ const analytics = getAnalytics(app);
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

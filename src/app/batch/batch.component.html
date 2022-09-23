@@ -1,48 +1,295 @@
-<div class="maincontainer">
+
+    <div class="headmain">
+        <img src="assets/images/main logo.png" alt="logo" style="width:100%; opacity: 0.8">
+    </div>
+    <header class="parallax">
+        <div class="contain">
+            <div class="container mb-3">
+                <div class="heading">
+                    <h1>Electrical and Electronics Engineering</h1>
+                </div>
+            </div>
+           
+          <div class="container-fluid" id="main" role="main">
+            <nav class="navbar">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar navbar-default navbar-toggle navbar-fixed-top" data-toggle="collapse" data-target="#mynavbar" id="nav">
+                           <span class="glyphicon glyphicon-align-justify" style="color: blue"></span>
+                        </button>
+                    </div>
+                    
+                    <div class="collapse navbar-collapse" id="mynavbar">
+                         <ul class="menu">
+                            <li><a href="indexnew.html" style="background-color:#5144e3">Home</a></li>
+                            <li><a href="indexnew.html#about">About Us</a></li>
+                            <li><a href="#s1">Faculty</a>
+                                <ul class="submenu">
+                                    <li><a href="profile.html">Profile</a></li>
+                                    <li><a href="publication.html">Publicaton</a></li>
+                                    <li><a href="fdp.html">FDP & Workshop</a></li>
+                                </ul>
+                            </li>
+                            <li class="active"><a href="#s2">Academic</a>
+                                <ul class="submenu">
+                                    <li><a href="placement.html">Placement</a></li>
+                                    <li><a href="rank.html">Ranks</a></li>
+                                    <li><a href="depttoppers.html">Toppers</a></li>
+                                    <li><a href="syllabus.html">Syllabus</a></li>
+                                    <li><a href="higherstudies.html">Higher Studies</a></li>
+                                    <li><a href="abm.html">Advisory Board</a></li>
+                                    <li><a href="magazines.html">Magazines</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="lab.html">Lab</a></li>
+                            <li class="active"><a href="#s2">Activities</a>
+                                <ul class="submenu">
+                                    <li><a href="iv.html">Industrial Visits</a></li>
+                                    <li><a href="ngo.html">NGO Activities</a></li>
+                                    <li><a href="guestlecture.html">Guest Lecture</a></li>
+                                    <li><a href="value.html">Value Added Courses</a></li>
+                                    <li><a href="sympo.html">Symposium </a></li>
+                                    <li><a href="clubs.html">Various Clubs</a></li>
+                                    <li><a href="ieee.html">IEEE</a></li>
+                                    <li><a href="ed.html">ED Cell</a></li>
+                                    <li><a href="lockdown.html">Activities during Lockdown</a></li>
+                                </ul>
+                            </li>
+                            <li class="active"><a href="#s2">Research</a>
+                                <ul class="submenu">
+                                  <li><a href="https://drive.google.com/file/d/1U4WuW03LGHhvh3-F23ni5dFdABQzcey-/view?usp=sharing">Patent</a></li>
+                                    <li><a href="Fund.pdf">Funded Projects</a></li>
+                                    <li><a href="mou.html">MOU & activities</a></li>
+                                    <li><a href="supervisor.html">Supervisor Details</a></li>
+                                </ul>
+                            </li>
+                            <li class="active"><a href="#s2">Elite alumni</a>
+                                <ul class="submenu">
+                                    <li><a href="https://xzawupwkzu7awk9zkgsnjg-on.drv.tw/test1120/mobile">Testimonial</a></li>
+                                    <li><a href="alumini video.html">video</a></li>
+                                </ul>
+                            </li>
+                            <li class="active"><a href="#s2">Teaching & Learning Process </a>
+                                <ul class="submenu">
+                                    <li><a href="evaluation procedure for the project.html">Evaluation Procedure</a></li>
+                                    <li><a href="gap.html">Curriculum Gap Identification</a></li>
+                                    <li><a href="organisationchart.html">Organisational Hierachy</a></li>
+                                    <li><a href="assets/images/eee/assesment.jpg">Assessment Methodology</a></li>
+                                    <li><a href="quality.html">Quality Assurance </a></li>
+                                    <li><a href="nba.html">Defining Goals and Objectives</a></li>
+                                    <li><a href="PSO.pdf">PROGRAM SPECIFIC OUTCOMES(PSO)</a></li>
+                                    <li><a href="https://flipbookpdf.net/web/site/5a5c407d282fcebadcb644de159a91bf54f3c336202007.pdf.html">CO-PO 2013 PED </a></li>
+                                    <li><a href="https://flipbookpdf.net/web/site/7da4ff4c2de4d3e9f06b2f372f851ffa3f5da37b202103.pdf.html">CO-PO 2017 PED</a></li>
+                                    <li><a href="https://flipbookpdf.net/web/site/71d9d2ed541b46a923539309526d47b18cd18651202007.pdf.html">CO-PO 2013 EEE </a></li>
+                                    <li><a href="https://flipbookpdf.net/web/site/c8d5b8e9c5ddecadbc06df6972ba9c1dc145fafb202007.pdf.html">CO-PO 2017 EEE</a></li>
+                                </ul>
+                            </li>
+                             <li class="active"><a href="http://stjosephs.ac.in/FeedBackall.html">Feedback</a></li>
+                        </ul>     
+                    </div>                
+                </div>
+            </nav>
+          </div>
+            </div>
+        </header>
+      
+      <script>
+            $(document).ready(function(){
+            $("#nav").click(function(){
+              $("#mynavbar").toggle();
+            });
+          }); 
+      </script>
+       <!--image slider start-->
+         
+    <!--slider code-->
+    <div class="container">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+           <div [ngClass]="activeindex!=i ? 'item' : 'item active'" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10];">
+              <img [src]="getimgsrc(i)" alt="s1" style="width:100%; height: 100%">
+            </div>
+            
+          </div>
+
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev" >
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next" >
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+
+<!-- batch -->
 <div class="leftcontainer">
 
-<div class="cards row" >
-    <div class="container" >
-        <div  >
-        <div class="card border-primary mb-4">
-            
-            <div class="card-header">
-                <h3 class="card-title">Elite Alumnies</h3>
-            </div>
-            <div class="card-body text-primary" >
-                <a routerLink="/profile/elite" class="btn btn-primary">View all</a>
-            </div>
+  <div class="cards row" >
+      <div class="card-container" >
+          <div  >
+          <div class="card border-primary mb-4">
+              
+              <div class="card-header">
+                  <h3 class="card-title">Elite Alumnies</h3>
+              </div>
+              <div class="card-body text-primary" >
+                  <a routerLink="/profile/elite" class="btn btn-primary">View all</a>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+  
+      <div class="cards row" *ngFor="let year of batch;let i=index;">
+          <div class="card-container" >
+              <div  >
+              <div class="card border-primary mb-4">
+                  
+                  <div class="card-header">
+                      <h3 class="card-title">Batch {{i+1}}</h3>
+                  </div>
+                  <div class="card-body text-primary" >
+                      <p class="card-text">{{year.start_year}} to {{year.end_year}}</p>
+                      <a routerLink="/profile/{{year.end_year}}" class="btn btn-primary">View all</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+<!--about us-->
+<section class="about">
+     <div class="container">
+        <div class="row">
+           <div class="col-lg-6">
+              <div class="author-img">
+                 <img src="assets/images/eee/4.jpg" class="img-fluid" alt="">
+              </div>
+           </div>
+           <div class="col-lg-6 d-flex flex-column justify-content-top">
+              <div class="section-title mt-4">
+                 <h2>About Us</h2>
+                 <p>
+                      The department was incepted in the year 1996 with Bachelors degree in the faculty of Electrical
+                      and Electronics Engineering and the same is accredited by National Board of Accreditation (NBA) for
+                      three times. The department also offers postgraduate programs in the faculty of electrical engineering
+                      namely Masters in Engineering in Power Electronics and Drives since 2003 and Power systems engineering 
+                      since 2012. The sanctioned student intake is as follows.
+                  </p>
+              </div>
+           </div>
         </div>
-    </div>
-</div>
-</div>
+     </div>
+  </section>
+  <!--vision-->
+<section class="about">
+     <div class="container">
+        <div class="row">
+           <div class="col-lg-6 d-flex flex-column justify-content-top">
+              <div class="section-title mt-4">
+                 <h2>Vision</h2>
+                 <p>
+                      To promote the department of Electrical and Electronics Engineering as a pioneer in
+                       education and research by imparting quality education, creating and upgrading the academic
+                        facilities and inculcating professional values to the students to face the challenges in 
+                        the dynamic global society.
+                  </p>
+              </div>
+           </div>
+           <div class="col-lg-6">
+         
+                 <iframe  src="https://www.youtube.com/embed/wTyRdYfVBoY" width="100%" height="300px"></iframe>
+              </div>
+           </div>
+        </div>
 
-    <div class="cards row" *ngFor="let year of batch;let i=index;">
-        <div class="container" >
-            <div  >
-            <div class="card border-primary mb-4">
-                
-                <div class="card-header">
-                    <h3 class="card-title">Batch {{i+1}}</h3>
-                </div>
-                <div class="card-body text-primary" >
-                    <p class="card-text">{{year.start_year}} to {{year.end_year}}</p>
-                    <a routerLink="/profile/{{year.end_year}}" class="btn btn-primary">View all</a>
-                </div>
+  </section>
+      <div class="site-section" id="about">
+        <div class="container">
+          <div class="row">
+            <div class="block-2 teal" style="background-color: #18185e; color: #FFFFFF">
+                <span class="wrap-icon" style="background-color: #3c3ca3">
+                    <span class="icon-cog"></span>
+                </span>
+              <h2>MISSION</h2>
+              <p align="justify">
+              <ul style="text-align: justify">
+                <li>To attainutmost qualities of teaching-learning process and provide a vibrant environment for the students to exhibit their fullest potential in the field of Electrical and Electronics Engineering.</li>
+                <li>To improve research and development skills among students towards providing technical solutions with ethical values to meet social challenges.</li>
+                <li>To develop the students to face the technological requirements of the industry with professional values and make them employable and to impart the spirit of entrepreneurship for their successful career.</li>
+              </ul>
             </div>
+          </div>
         </div>
-    </div>
-</div>
-</div>
-<div class="rightcontainer">
-    <figure class="icon-cards mt-3">
-        <div class="icon-cards__content">
-          
-          <img src="https://picsum.photos/id/100/500/300" class="icon-cards__item d-flex align-items-center justify-content-center">
-          <img src="https://picsum.photos/id/110/500/300" class="icon-cards__item d-flex align-items-center justify-content-center">
-          <img src="https://picsum.photos/id/120/500/300" class="icon-cards__item d-flex align-items-center justify-content-center">
+      </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <h2 class="footer-heading mb-2">About Us</h2>
+                <p class="mb-2 footerinfo">Providing the best in Electrical Knowledge since 1995. </p>
+          </div>
+          <div class="col-md-9 ml-auto">
+            <div class="row">
+              <div class="col-md-6 ml-auto">
+                <h2 class="footer-heading mb-5">Contact Information</h2>
+                <ul class="list-unstyled footerinfo">
+                    <li><span class="glyphicon glyphicon-map-marker">  St. Joseph's College of Engineering, OMR, Chennai -119.</span></li>
+                    <li><span class="glyphicon glyphicon-earphone"></span>  +91-44-24500792</li>
+                    <li><span class="glyphicon glyphicon-envelope"></span>  eee@stjosephs.ac.in</li>
+                </ul>
+              </div>
+              <div class="col-md-3">
+                <h2 class="footer-heading mb-4">Navigation</h2>
+                <ul class="list-unstyled footerinfo">
+                  <li><a href="indexnew.html">Home</a></li>
+                  <li><a href="indexnew.html#about">About Us</a></li>
+                  <li><a href="abm.html">Contact Us</a></li>
+                </ul>             
+              </div>
+            </div>
+          </div>
         </div>
-      </figure>
-      
-</div>
-    </div>
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <div class="border-top pt-5">
+              <p>
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> St. Joseph's College of Engineering, OMR, Chennai - 119.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <button onclick="topFunction()" id="myBtn" title="Go to top" class="icon-chevron-up"></button>
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction(
+                ) {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+  

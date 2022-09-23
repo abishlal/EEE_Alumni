@@ -1,0 +1,40 @@
+.cards{
+   margin: 20px;
+}
+.maincontainer{
+   display: flex;
+   flex-direction: column-reverse;
+}
+.leftcontainer{
+ width: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ align-content: center;
+ flex-wrap: wrap;
+}
+
+.leftcontainer>div{
+ flex: 200px 0 1;
+
+}
+.rightcontainer{
+   width:100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.card-container{
+   height: 100%;
+}
+ .item{
+width: 100%;    
+ }
+ .active{
+left:0px;
+}
+ .carousel-inner{
+   display: flex;
+   width: 100%;
+ }
+

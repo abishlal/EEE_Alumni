@@ -24,7 +24,7 @@ export class ViewProfileComponent implements OnInit {
       val = snapshot.val();
       const id = this.route.snapshot.paramMap.get('id');
       if(id)this.userid=id;
-      if(id==this.cur_user.user.uid || id=="adminid")this.editable=true;
+      if(sessionStorage.getItem("loggedin")=="true"&&id==this.cur_user.user.uid || id=="adminid")this.editable=true;
       console.log(id)
       this.initialpageload=false;
       if(id && id in val){

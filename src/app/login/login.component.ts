@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
       .then((data) => {
         if (data.user.emailVerified) {
           this.message = 'sucessfull';
+          sessionStorage.setItem("loggedin","true");
           this.route.navigate(['/edit-profile/fromuser']);
         } else {
           sendEmailVerification(this.auth.currentUser).then(() => {

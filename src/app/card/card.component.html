@@ -12,11 +12,12 @@
                     <img src="../../assets/img/bg.jpg" alt="card background" class="card-img">
                     <img src={{user.Personal_Details.imgurl?user.Personal_Details.imgurl:this.defaultprofile}} alt="profile image" class="profile-img ">
                     <h1>{{user.Personal_Details.first_name + ' ' + user.Personal_Details.last_name}}</h1>
-                    <p class="job-title"> Lead Designer </p>
+                    <p class="job-title"> Lead Designer</p>
                     <p class="about">
                         {{user.Personal_Details.about}}
                     </p>
-                    <a routerLink="/profile/view/{{user.Personal_Details.user_id}}" class="btn"> Contact </a>
+                    
+                    <a routerLink="/profile/view/{{user.Personal_Details.user_id}}" class="btn"> View more </a>
                     <ul class=" social-media ">
                         <li> <a href="#"> <i class="fab fa-facebook-square"> </i> </a> </li>
                         <li> <a href="#"> <i class="fab fa-twitter-square"> </i> </a> </li>

@@ -18,6 +18,10 @@
    height: 100%;
 }
 
+.site-section{
+   padding: 30px;
+}
+
 
 /* carousel */
 .carousel_slide{
@@ -50,6 +54,15 @@ overflow: hidden;
    color: #faffff;
    font-family: serif;
    font-size: 62px;
+   text-align: center;
+   font-weight: 800;
+   text-transform: fullwidth;
+   background-color: rgba(0, 0, 0, 0.2);
+}
+.heading h2 {
+   color: #faffff;
+   font-family: serif;
+   font-size: 50px;
    text-align: center;
    font-weight: 800;
    text-transform: fullwidth;

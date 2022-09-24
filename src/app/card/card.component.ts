@@ -11,7 +11,7 @@ export class CardComponent implements OnInit {
   year: any;
 
   profile: any = [];
-  defaultprofile:string='../../assets/img/abish (2).jpg';
+  defaultprofile:string='https://firebasestorage.googleapis.com/v0/b/alumini-eee.appspot.com/o/users_img%2FWovJv4ZKunenAYfOYnCwBOnK5ZY2%2Furl?alt=media&token=5defad17-0984-49ba-9a3b-a5622445860e';
   
   constructor(public activateRoute: ActivatedRoute) {
     this.year = this.activateRoute.snapshot.paramMap.get('batch');

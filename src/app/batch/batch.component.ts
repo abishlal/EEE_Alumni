@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { getDatabase, ref, onValue } from 'firebase/database';
-import * as jQuery from 'jquery';
+
 
 @Component({
   selector: 'app-batch',

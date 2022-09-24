@@ -1,4 +1,4 @@
-
+<div class="maincontainer">
     <div class="headmain">
         <img src="assets/images/main logo.png" alt="logo" style="width:100%; opacity: 0.8">
     </div>
@@ -10,110 +10,20 @@
                 </div>
             </div>
            
-          <div class="container-fluid" id="main" role="main">
-            <nav class="navbar">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar navbar-default navbar-toggle navbar-fixed-top" data-toggle="collapse" data-target="#mynavbar" id="nav">
-                           <span class="glyphicon glyphicon-align-justify" style="color: blue"></span>
-                        </button>
-                    </div>
-                    
-                    <div class="collapse navbar-collapse" id="mynavbar">
-                         <ul class="menu">
-                            <li><a href="indexnew.html" style="background-color:#5144e3">Home</a></li>
-                            <li><a href="indexnew.html#about">About Us</a></li>
-                            <li><a href="#s1">Faculty</a>
-                                <ul class="submenu">
-                                    <li><a href="profile.html">Profile</a></li>
-                                    <li><a href="publication.html">Publicaton</a></li>
-                                    <li><a href="fdp.html">FDP & Workshop</a></li>
-                                </ul>
-                            </li>
-                            <li class="active"><a href="#s2">Academic</a>
-                                <ul class="submenu">
-                                    <li><a href="placement.html">Placement</a></li>
-                                    <li><a href="rank.html">Ranks</a></li>
-                                    <li><a href="depttoppers.html">Toppers</a></li>
-                                    <li><a href="syllabus.html">Syllabus</a></li>
-                                    <li><a href="higherstudies.html">Higher Studies</a></li>
-                                    <li><a href="abm.html">Advisory Board</a></li>
-                                    <li><a href="magazines.html">Magazines</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="lab.html">Lab</a></li>
-                            <li class="active"><a href="#s2">Activities</a>
-                                <ul class="submenu">
-                                    <li><a href="iv.html">Industrial Visits</a></li>
-                                    <li><a href="ngo.html">NGO Activities</a></li>
-                                    <li><a href="guestlecture.html">Guest Lecture</a></li>
-                                    <li><a href="value.html">Value Added Courses</a></li>
-                                    <li><a href="sympo.html">Symposium </a></li>
-                                    <li><a href="clubs.html">Various Clubs</a></li>
-                                    <li><a href="ieee.html">IEEE</a></li>
-                                    <li><a href="ed.html">ED Cell</a></li>
-                                    <li><a href="lockdown.html">Activities during Lockdown</a></li>
-                                </ul>
-                            </li>
-                            <li class="active"><a href="#s2">Research</a>
-                                <ul class="submenu">
-                                  <li><a href="https://drive.google.com/file/d/1U4WuW03LGHhvh3-F23ni5dFdABQzcey-/view?usp=sharing">Patent</a></li>
-                                    <li><a href="Fund.pdf">Funded Projects</a></li>
-                                    <li><a href="mou.html">MOU & activities</a></li>
-                                    <li><a href="supervisor.html">Supervisor Details</a></li>
-                                </ul>
-                            </li>
-                            <li class="active"><a href="#s2">Elite alumni</a>
-                                <ul class="submenu">
-                                    <li><a href="https://xzawupwkzu7awk9zkgsnjg-on.drv.tw/test1120/mobile">Testimonial</a></li>
-                                    <li><a href="alumini video.html">video</a></li>
-                                </ul>
-                            </li>
-                            <li class="active"><a href="#s2">Teaching & Learning Process </a>
-                                <ul class="submenu">
-                                    <li><a href="evaluation procedure for the project.html">Evaluation Procedure</a></li>
-                                    <li><a href="gap.html">Curriculum Gap Identification</a></li>
-                                    <li><a href="organisationchart.html">Organisational Hierachy</a></li>
-                                    <li><a href="assets/images/eee/assesment.jpg">Assessment Methodology</a></li>
-                                    <li><a href="quality.html">Quality Assurance </a></li>
-                                    <li><a href="nba.html">Defining Goals and Objectives</a></li>
-                                    <li><a href="PSO.pdf">PROGRAM SPECIFIC OUTCOMES(PSO)</a></li>
-                                    <li><a href="https://flipbookpdf.net/web/site/5a5c407d282fcebadcb644de159a91bf54f3c336202007.pdf.html">CO-PO 2013 PED </a></li>
-                                    <li><a href="https://flipbookpdf.net/web/site/7da4ff4c2de4d3e9f06b2f372f851ffa3f5da37b202103.pdf.html">CO-PO 2017 PED</a></li>
-                                    <li><a href="https://flipbookpdf.net/web/site/71d9d2ed541b46a923539309526d47b18cd18651202007.pdf.html">CO-PO 2013 EEE </a></li>
-                                    <li><a href="https://flipbookpdf.net/web/site/c8d5b8e9c5ddecadbc06df6972ba9c1dc145fafb202007.pdf.html">CO-PO 2017 EEE</a></li>
-                                </ul>
-                            </li>
-                             <li class="active"><a href="http://stjosephs.ac.in/FeedBackall.html">Feedback</a></li>
-                        </ul>     
-                    </div>                
-                </div>
-            </nav>
-          </div>
             </div>
         </header>
       
-      <script>
-            $(document).ready(function(){
-            $("#nav").click(function(){
-              $("#mynavbar").toggle();
-            });
-          }); 
-      </script>
        <!--image slider start-->
          
     <!--slider code-->
     <div class="container">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div id="myCarousel" class="carousel_slide" data-ride="carousel">
           <!-- Indicators -->
           
 
           <!-- Wrapper for slides -->
-          <div class="carousel-inner" role="listbox">
-           <div [ngClass]="activeindex!=i ? 'item' : 'item active'" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10];">
-              <img [src]="getimgsrc(i)" alt="s1" style="width:100%; height: 100%">
-            </div>
-            
+          <div class="carousel-inner" [ngStyle]="{'left':-activeindex*100+'%','transition':activeindex==0?'0s':'1s'}" role="listbox">
+              <img [src]="getimgsrc(i)"  *ngFor="let i of [1,2,3,4,5,6,7,8,9,10];">
           </div>
 
           <!-- Left and right controls -->
@@ -129,6 +39,8 @@
       </div>
 
 <!-- batch -->
+<section>
+  <div class="container">
 <div class="leftcontainer">
 
   <div class="cards row" >
@@ -145,6 +57,7 @@
           </div>
       </div>
   </div>
+
   </div>
   
       <div class="cards row" *ngFor="let year of batch;let i=index;">
@@ -164,6 +77,8 @@
       </div>
   </div>
   </div>
+</div>
+</section>
 <!--about us-->
 <section class="about">
      <div class="container">
@@ -211,16 +126,16 @@
         </div>
 
   </section>
-      <div class="site-section" id="about">
+
+      <section class="site-section" id="about">
         <div class="container">
           <div class="row">
-            <div class="block-2 teal" style="background-color: #18185e; color: #FFFFFF">
+            <div class="block-2 teal mission" style="background-color: #18185e; color: #FFFFFF">
                 <span class="wrap-icon" style="background-color: #3c3ca3">
                     <span class="icon-cog"></span>
                 </span>
               <h2>MISSION</h2>
-              <p align="justify">
-              <ul style="text-align: justify">
+              <ul>
                 <li>To attainutmost qualities of teaching-learning process and provide a vibrant environment for the students to exhibit their fullest potential in the field of Electrical and Electronics Engineering.</li>
                 <li>To improve research and development skills among students towards providing technical solutions with ethical values to meet social challenges.</li>
                 <li>To develop the students to face the technological requirements of the industry with professional values and make them employable and to impart the spirit of entrepreneurship for their successful career.</li>
@@ -228,13 +143,13 @@
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
     <footer class="site-footer">
       <div class="container">
         <div class="row">
           <div class="col-md-3">
-            <h2 class="footer-heading mb-2">About Us</h2>
+            <h2 class="footer-heading mb-5">About Us</h2>
                 <p class="mb-2 footerinfo">Providing the best in Electrical Knowledge since 1995. </p>
           </div>
           <div class="col-md-9 ml-auto">
@@ -247,14 +162,7 @@
                     <li><span class="glyphicon glyphicon-envelope"></span>  eee@stjosephs.ac.in</li>
                 </ul>
               </div>
-              <div class="col-md-3">
-                <h2 class="footer-heading mb-4">Navigation</h2>
-                <ul class="list-unstyled footerinfo">
-                  <li><a href="indexnew.html">Home</a></li>
-                  <li><a href="indexnew.html#about">About Us</a></li>
-                  <li><a href="abm.html">Contact Us</a></li>
-                </ul>             
-              </div>
+              
             </div>
           </div>
         </div>
@@ -269,27 +177,5 @@
         </div>
       </div>
     </footer>
-    <button onclick="topFunction()" id="myBtn" title="Go to top" class="icon-chevron-up"></button>
-    <script>
-        //Get the button
-        var mybutton = document.getElementById("myBtn");
-
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {scrollFunction()};
-
-        function scrollFunction() {
-          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            mybutton.style.display = "block";
-          } else {
-            mybutton.style.display = "none";
-          }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction(
-                ) {
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
-        }
-        </script>
+  </div>
   

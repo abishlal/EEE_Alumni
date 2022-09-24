@@ -16,6 +16,7 @@ export class EditProfileComponent implements OnInit {
   userid:string|undefined;
   adminlogin:boolean=false;
   online:boolean=true;
+  adminid:string="0LJ3kwiqQxWBoEB7rcUAGJiWd8r2"
   constructor(private cur_user: CurrentuseService,private route: ActivatedRoute) {
     const db = getDatabase();
     const connectedRef = ref(db, ".info/connected");
@@ -25,10 +26,10 @@ export class EditProfileComponent implements OnInit {
         this.online=true;
         const id = this.route.snapshot.paramMap.get('id');
         console.log(id);
-         this.userid=(this.cur_user.user.uid=="rp23sHDffYW8Xb9M5pmRehB8uYU2" && id)?id:this.cur_user.user.uid;
+         this.userid=(this.cur_user.user.uid==this.adminid && id)?id:this.cur_user.user.uid;
          console.log("userid "+ this.cur_user.user.uid);
          
-         if(this.cur_user.user.uid=="rp23sHDffYW8Xb9M5pmRehB8uYU2")this.adminlogin=true;
+         if(this.cur_user.user.uid==this.adminid)this.adminlogin=true;
           
         const starCountRef = ref(db, 'users/' + this.userid + '/data');
         
@@ -131,7 +132,7 @@ export class EditProfileComponent implements OnInit {
       'Work_experience',
     ];
     const tempobj: any = {
-      Personal_Details: { ...val.Personal_Details, imgurl: this.userimgurl ,type:"General"},
+      Personal_Details: { ...val.Personal_Details, imgurl: this.userimgurl },
       Academic_details: [],
       Social_media: [],
       Work_experience: [],
@@ -144,7 +145,7 @@ export class EditProfileComponent implements OnInit {
       }
     }
     tempobj.Personal_Details.user_id=this.userid;
-
+    if(!val.Personal_Details.type)tempobj.Personal_Details.type=this.current_user.Personal_Details.type
     return tempobj;
   }
   tempval: any = {

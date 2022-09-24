@@ -1,17 +1,16 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { getDatabase, ref, onValue } from 'firebase/database';
-import * as jQuery from 'jquery';
 
 @Component({
   selector: 'app-batch',
   templateUrl: './batch.component.html',
-  styleUrls: ['./style.css','./batch.component.css'],
+  styleUrls: ['./batch.component.css'],
 })
 export class BatchComponent implements OnInit {
   activeSlideIndex:number=0;
   batch: any = [];
-slidesLength:number=3;
+slidesLength:number=10;
   constructor(public activateRoute:ActivatedRoute) {
     let val: any;
     const db = getDatabase();
@@ -23,10 +22,11 @@ slidesLength:number=3;
       }
     });
     setInterval(()=>{
-      this.activeindex=1+(this.activeindex+1)%11
-    },1000)
+      this.activeindex=(this.activeindex+1)%this.slidesLength;
+    },2000)
   }
   activeindex:number=2;
+
   getimgsrc(i:number){
     return "assets/images/eee/"+(i+1)+".jpg"
   }

@@ -22,6 +22,8 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
+    sessionStorage.setItem("loggedin","false");
+
     signOut(this.auth)
       .then(() => {
         window.location.reload();
